@@ -1,7 +1,7 @@
 ﻿body
 {
     background: black;
-    background: url(../Ext/res/wlcs-1.jpg) no-repeat;
+    background: url(../Ext/Res/wlcs-1.jpg) no-repeat;
 }
 h1
 {
@@ -37,7 +37,7 @@ div.ico-name
     position:absolute;
     width:100%;
     height:61px;
-    background:url(../Ext/res/codes.jpg);
+    background:url(../Ext/Res/codes.jpg);
 }
 #layout
 {
@@ -60,7 +60,7 @@ div.ico-name
     border-width:thick;
     height :500px;
     width:850px;
-    background:url(../Ext/res/bluewin98.png) no-repeat;
+    background:url(../Ext/Res/bluewin98.png) no-repeat;
 }
 #aside
 {
