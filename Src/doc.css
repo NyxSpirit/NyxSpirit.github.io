@@ -1,0 +1,63 @@
+header
+{
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+section
+{
+    position:absolute;
+    border:20px none gray;
+    height: 264px; 
+    width: 447px; 
+    top: 0px;
+    left: 128px;
+}
+aside
+{
+    position:relative;
+    width: 89px;
+    height: 262px;
+    top: -10px;
+    left: -7px;
+}
+footer
+{
+    position:absolute;
+    top: 280px;
+    height: 20px;
+    width: 545px;
+    left: 8px;
+    background-color:dimgray;
+}
+table.dataintable 
+{
+    border-collapse: collapse;
+    border: 0px solid dimgray;
+    width: 100%;
+    top: 4px;
+    left: 4px;
+}
+table
+{
+    position:absolute;
+    border-spacing:2px;
+    border:2px solid dimgray;
+}
+tr
+{
+    display: table-row;
+    vertical-align: inherit;
+
+}
+th
+{
+    font-weight: bold;
+    background-color:#999999;    
+    text-align:left;
+    border-right:1pt solid dimgray;
+}
+td
+{
+    vertical-align:middle;
+}

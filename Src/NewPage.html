@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+        <title>聂中天的个人主页 </title> 
+        <script type="text/JavaScript">
+            var newFold;
+            function openRes()
+            {　
+                OpenWindow=window.open("", "newwin", "height=250,width=350,top=200,left=400,scrollbars="+scroll+",menubar=no");
+                OpenWindow.document.write("<TITLE>My Resume</TITLE>")
+                OpenWindow.document.write("<BODY>")
+                OpenWindow.document.write('<img src ="../Ext/res/Neo_photo.jpg" style ="float:right; left:100px; height:90px; width:150px"/>')
+                OpenWindow.document.write('<h1 style ="font:楷体"> &nbsp聂&nbsp 中天</h1>')
+                OpenWindow.document.write("<ul style ='margin-bottom:10px;'><li>性别：男</li>")
+                OpenWindow.document.write("<li>级别：二年级生</br>现就学于清华大学软件学院21班。</li>")
+                OpenWindow.document.write("<li>爱好：游戏，体育，自虐。</li>")
+                OpenWindow.document.write("<li>我的警句是：与其感慨路难行，不如马上出发。</li></ul>")
+                OpenWindow.document.write("</BODY>")
+                OpenWindow.document.write("</HTML>")
+                OpenWindow.document.close()
+
+            }
+
+            function openDoc()
+            {
+                var newfdm = document.getElementById("DocFldMenu");
+                newfdm.style.display = "block";
+                var newfolder = document.getElementById("DocFld");
+                newfolder.style.visibility = "visible";
+                var newsc = document.getElementById("StateCol");
+                newsc.style.display = "block";
+                var newvs = document.getElementById("VerticalStick");
+                newvs.style.display = "block";
+                var newcf = document.getElementById("DocFldClose");
+                newcf.style.top = "-1231px";
+                newcf.style.left = "743px";
+                newcf.style.display = "block";
+                
+            }
+
+            function CloseFile()
+            {
+                var newfolder = document.getElementById("DocFld");
+                newfolder.style.visibility = "hidden";
+                var newfdm = document.getElementById("DocFldMenu");
+                newfdm.style.display = "none";
+                var newsc = document.getElementById("StateCol");
+                newsc.style.display = "none";
+                var newvs = document.getElementById("VerticalStick");
+                newvs.style.display = "none";
+                var newcf = document.getElementById("DocFldClose");
+                newvs.style.display = "none";
+                
+            }
+
+            function openNet()
+            {
+                
+                newFold = document.createElement("iframe");
+                newFold.src = "NetNeighb.html";
+                newFold.style.height = "450px";       
+                newFold.style.width = "660px";
+                newFold.style.position = "fixed";
+                newFold.style.top = "130px";
+                newFold.style.left = "310px";
+                newFold.scrolling = "yes";
+                document.body.appendChild(newFold);
+                var nnf = document.getElementById("NetNbClose");
+                nnf.style.display = "block";
+            }
+
+            function CloseNN() {
+                newFold.style.visibility = "hidden";
+                var nnf = document.getElementById("NetNbClose");
+                nnf.style.display = "none";
+            }
+        </script>
+        <link rel ="stylesheet" type ="text/css" href ="index.css" />
+	    <style type="text/css">
+            .file
+            {
+                width: 102px;
+                height: 124px;
+            }
+            .auto-style1
+            {
+                background-color: #FFFFFF;
+            }
+        </style>
+	</head>
+
+	<body>
+        <div id ="header">
+            <h1 style ="width:auto; color:white; top:-5px; "> <strong>Welcome to Neo&#39;s Private System.</strong></h1>
+            <div style="position:absolute; width: 77px; height: 14px; top: 23px; left: 552px;"><small><span class="auto-style1">Version 0.1</span></small></div>
+        </div>
+        <div id ="layout" class ="clearfix">    
+            <div id ="body">
+                
+                <div class ="file" ondblclick ="openRes()" >
+                    <img src="../Ext/res/icos/107.ico" class ="ico" /> <br />
+                    <div class ="ico-name"> My Resume</div>
+                </div>
+
+                <div class ="file" ondblclick ="openDoc()" >
+                    <img src="../Ext/res/icos/21.ico"  class ="ico" alt ="我的文档" /> <br /> 
+                    <div class = "ico-name"> My Document </div> 
+                </div>
+                <div class ="file" ondblclick ="openNet()" >
+                    <img src="../Ext/res/icos/18.ico" class ="ico" /> <br />
+                    <div class ="ico-name">Network <br />Neighborhood</div>
+                </div>
+
+                <div class ="file" ondblclick ="doNothing()" id ="RycBin">
+                    <img src="../Ext/res/icos/102.ico" class ="ico" /> <br />
+                    <div class ="ico-name">Rycycle Bin</div>
+                </div>
+
+                <img src="../Ext/res/menu.gif" id ="DocFldMenu" />
+                
+                <iframe src ="documents.html" class="folder" id ="DocFld"></iframe>
+                <div id="StateCol"> &nbsp;One Object.<track /></div>                                                  
+                <div id="VerticalStick"></div>
+                <img src="../Ext/res/close.bmp" id ="DocFldClose" onclick="CloseFile()"/>
+                <img src="../Ext/res/close.bmp" id ="NetNbClose" onclick="CloseNN()"/>
+            </div>
+                
+            <div id ="aside">
+                <strong>Imageless(FUL) Windows98 System </strong><br />
+                <ul>
+                    <li>Double Click icons to start Browsing.</li>
+                    <li>Closing Windows via the top-right cross.</li>
+                </ul>
+                <hr />
+                <h1 style="background-color:gray;text-align:center">Advertising Area~~~</h1>
+            </div>
+        </div>
+
+        <div id ="footer">
+            Copyright @聂中天,Tsinghua University <br />
+            2014-07-02
+        </div>  
+                
+	</body>
+</html>
