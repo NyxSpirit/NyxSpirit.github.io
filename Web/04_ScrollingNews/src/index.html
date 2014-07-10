@@ -1,0 +1,68 @@
+﻿<html>
+<head>
+    <title>hello?</title>
+<script type="text/javascript">
+    function showHint(str) {
+        var xmlhttp;
+        if (str.length == 0) {
+            document.getElementById("txtHint").innerHTML = "";
+            return;
+        }
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+            }
+        }
+        var url = './gethint.asp';
+        xmlhttp.open("GET", url + "?q=" + str, true);
+        xmlhttp.send();
+    }
+</script>
+</head>
+<body>
+
+<h3>请在下面的输入框中键入字母（A - Z）：</h3>
+<form action=""> 
+姓氏：<input type="text" id="txt1" onkeyup="showHint(this.value)" />
+</form>
+<p>建议：<span id="txtHint"></span></p> 
+
+</body>
+</html>
+
+
+
+
+<!--<html>
+    <head>
+        <title>Example</title>
+        <script type ="text/javascript">
+            function handler() {
+                if (this.readyState == this.DONE && this.status == 200) {
+                    processData(JSON.parse(this.responseText));
+                    console.log(xmlhttp.responseText);
+                }
+            }
+            function loadDoc() {
+                var xmlhttp;
+                xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = handler;
+                //var url = 'http://api.douban.com/book/subject/isbn/9787111187776'
+                var url = 'file:///C:/Users/Neo/Desktop/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E5%89%8D%E7%AB%AF%E4%BD%9C%E4%B8%9A/NewsSrc.asp';
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+        </script>
+    </head>
+    <body>
+        <div onclick ="loadDoc()">
+            LoadDocuments.
+        </div>
+    </body>
+</html>-->
