@@ -1,7 +1,9 @@
+ï»¿<html>
+<body>
 <%
     response.expires=-1
     dim a(30)
-    'ÓÃÃû×ÖÀ´Ìî³äÊý×é
+    'ç”¨åå­—æ¥å¡«å……æ•°ç»„
     a(1)="Anna"
     a(2)="Brittany"
     a(3)="Cinderella"
@@ -33,10 +35,10 @@
     a(29)="Wenche"
     a(30)="Vicky"
 
-    '»ñµÃÀ´×Ô URL µÄ q ²ÎÊý
+    'èŽ·å¾—æ¥è‡ª URL çš„ q å‚æ•°
     q=ucase(request.querystring("q"))
 
-    'Èç¹û q ´óÓÚ 0£¬Ôò²éÕÒÊý×éÖÐµÄËùÓÐÌáÊ¾
+    'å¦‚æžœ q å¤§äºŽ 0ï¼Œåˆ™æŸ¥æ‰¾æ•°ç»„ä¸­çš„æ‰€æœ‰æç¤º
     if len(q)>0 then
       hint=""
       for i=1 to 30
@@ -50,11 +52,13 @@
       next
     end if
 
-    'Èç¹ûÎ´ÕÒµ½ÌáÊ¾£¬ÔòÊä³ö "no suggestion"
-    '·ñÔòÊä³öÕýÈ·µÄÖµ
+    'å¦‚æžœæœªæ‰¾åˆ°æç¤ºï¼Œåˆ™è¾“å‡º "no suggestion"
+    'å¦åˆ™è¾“å‡ºæ­£ç¡®çš„å€¼
     if hint="" then
       response.write("no suggestion")
     else
       response.write(hint)
     end if
 %>
+</body>
+</html>
