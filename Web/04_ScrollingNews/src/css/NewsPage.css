@@ -1,6 +1,7 @@
 section.picSection{
     margin-left: 30px;
     border:0px solid red;
+    
 }
 aside.commentSection{
     float:right;
@@ -22,8 +23,8 @@ aside.commentSection{
     flex-align:center;
 }
 .mainPic{
-    height:435px;
-    width:600px;
+    height:475px;
+    width:1000px;
     position:relative;
     top:0px;
     right:0px;
@@ -32,6 +33,7 @@ aside.commentSection{
     height: 150px;
     border:2px dashed #bebebe;
     background-image:'../res/wave-bg.jpg';
+    overflow:hidden;
 }
 .prevGroup{
     float: left;
@@ -50,14 +52,14 @@ aside.commentSection{
 .prevNews{
     float: left;
     width:30px;
-    height:435px;
+    height:475px;
     background-color: #bebebe;
     opacity: 0.2;
 }
 .nextnews{
     float: right;
     width:30px;
-    height:435px;
+    height:475px;
     background-color: #bebebe;
     opacity: 0.3;
 }
@@ -66,11 +68,11 @@ aside.commentSection{
 img.abbrPic{
     width:150px;
     height:130px;
-    padding:5px 10px;
+    padding:10px 12px;
     
 }
 img.mainPic{
-	height:435px;
+	height:475px;
 	width:inherit;
 
 }
