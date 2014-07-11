@@ -75,7 +75,7 @@
     function picSlideNext() {
         var slider = $('div.abbrPics');
         curSliderPos = curSliderPos - 175;
-        slider.animate('left:' + String(curSliderPos) + 'px', 'slow');
+        slider.animate({left:  (String(curSliderPos) + 'px')}, 'slow');
     };
 
     setTimeout('SlideOn()', 2000);
