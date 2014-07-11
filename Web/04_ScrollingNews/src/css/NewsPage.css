@@ -50,14 +50,14 @@ aside.commentSection{
 }
 .prevNews{
     float: left;
-    width:30px;
+    width:45px;
     height:475px;
     background-color: #bebebe;
     opacity: 0.2;
 }
 .nextnews{
     float: right;
-    width:30px;
+    width:45px;
     height:475px;
     background-color: #bebebe;
     opacity: 0.3;
