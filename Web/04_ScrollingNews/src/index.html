@@ -11,15 +11,20 @@
 
 <script type="text/javascript">
 
+    $('aside').css('right', $('body').clientWidth);
     $('document').ready(LoadNews());
+
     var json;
     var curNews = 0;
     var curSliderPos = 0;
 
-    function setCurrent(value) {        
+    function setCurrent(value) {
+        
         var mainNews = $("img.mainPic");
+        mainNews.fadeOut();
         mainNews[0].src = json.newsInfo[value].picUrl;
         $('div.newsTitle')[0].innerHTML = '<a href = ' + json.newsInfo[value].detailUrl + '>' + json.newsInfo[value].title + '</a>';
+        mainNews.fadeIn();
         curNews = value;
     }
 
@@ -46,7 +51,7 @@
 				for (i in json.newsInfo) {
 				    var newpic = $("<img/>");
 				    newpic[0].src = json.newsInfo[i].picUrl;
-				    newpic.css('left',5+(i>=7)*(7*170+24));
+				    newpic.css('left',5+(i>=7)*(1218));
 				    newpic.css('top',(i>=7)*(-150));
 				    newpic.css('position','relative');
 				    newpic.addClass('abbrPic');
@@ -76,12 +81,12 @@
     };
     function picSlideNext() { 
         var slider = $('div.abbrPics');
-        if (curSliderPos >= -175*(json.totalNumber-1)){
+        if (curSliderPos >= -175*(json.totalNumber-1)+1218){
             curSliderPos = curSliderPos - 175;
             slider.animate({left:  (String(curSliderPos) + 'px')}, 'slow');
         }
     };
-
+    
     setTimeout('SlideOn()', 2000);
     
 </script>
@@ -113,22 +118,22 @@
             下一张
         </div>
            
-        <div style ="clear:both"></div>
+        <div style ="clear:both;height:20px"></div>
         
         <div class="prevGroup" onclick ="picSlideBack()" style = "cursor:pointer">
             上一批
-        </div>
-        <div class="nextGroup" onclick ="picSlideNext()" style = "cursor:pointer">
-            下一批
         </div>
         <div class="slider">
         <div class="abbrPics">
             
         </div>
+        </div>        
+        <div class="nextGroup" onclick ="picSlideNext()" style = "cursor:pointer">
+            下一批
         </div>
+        <div style ="clear:both;height:0px"></div>
+    
     </section>
-
-
 
 
 </body>
