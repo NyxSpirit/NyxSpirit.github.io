@@ -46,8 +46,8 @@
 				for (i in json.newsInfo) {
 				    var newpic = $("<img/>");
 				    newpic[0].src = json.newsInfo[i].picUrl;
-				    newpic.css('left',5);
-				    newpic.css('top',0)
+				    newpic.css('left',5+(i%7)*(i*170)));
+				    newpic.css('top',(i%7)*(-150))
 				    newpic.css('position','relative');
 				    newpic.addClass('abbrPic');
 				    picSec.append(newpic);
@@ -115,10 +115,10 @@
            
         <div style ="clear:both"></div>
         
-        <div class="prevGroup" onclick ="picSlideBack()" style = "cursor:'pointer'">
+        <div class="prevGroup" onclick ="picSlideBack()" style = "cursor:pointer">
             上一批
         </div>
-        <div class="nextGroup" onclick ="picSlideNext()">
+        <div class="nextGroup" onclick ="picSlideNext()" style = "cursor:pointer">
             下一批
         </div>
         <div class="slider">
