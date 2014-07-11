@@ -19,8 +19,8 @@
     var curSliderPos = 0;
 
     function setCurrent(value) {
+    	var mainNews = $("img.mainPic");
         mainNews.fadeOut('fast',function(){
-            var mainNews = $("img.mainPic");
             mainNews[0].src = json.newsInfo[value].picUrl;
             $('div.newsTitle')[0].innerHTML = '<a href = ' + json.newsInfo[value].detailUrl + '>' + json.newsInfo[value].title + '</a>';
             curNews = value;     
