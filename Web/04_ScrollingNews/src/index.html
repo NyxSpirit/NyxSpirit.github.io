@@ -38,7 +38,6 @@
         }
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
 				var picSec = $('span#pictures');
 				json = eval("("+xmlhttp.responseText+")");
 				newChild = document.createElement('div');
