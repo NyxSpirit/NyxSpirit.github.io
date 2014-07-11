@@ -1,58 +1,60 @@
 {
 	"newsInfo": [
 	    {
-			picUrl: "./pic/pic1.jpg"
-			title: "北京空气可以全年正常供应了！"
-			detailUrl: "#"
+			"picUrl": "./pic/pic1.jpg"
+			"title": "北京空气可以全年正常供应了！"
+			"detailUrl": "#"
 		},
 	    {
-			picUrl: "./pic/pic2.jpg"
-			title: "北京空气可以全年正常供应了！"
-			detailUrl: "#"
+			"picUrl": "./pic/pic2.jpg"
+			"title": "北京空气可以全年正常供应了！"
+			"detailUrl": "#"
 		},
 			    {
-			picUrl: "./pic/pic3.jpg"
-			title: "北京空气可以全年正常供应了！"
-			detailUrl: "#"
+			"picUrl": "./pic/pic3.jpg"
+			"title": "北京空气可以全年正常供应了！"
+			"detailUrl": "#"
 		},
 			    {
-			picUrl: "./pic/pic4.jpg"
-			title: "北京空气可以全年正常供应了！"
-			detailUrl: "#"
+			"picUrl": "./pic/pic4.jpg"
+			"title": "北京空气可以全年正常供应了！"
+			"detailUrl": "#"
 		},
 			    {
-			picUrl: "./pic/pic5.jpg"
-			title: "北京空气可以全年正常供应了！"
-			detailUrl: "#"
+			"picUrl": "./pic/pic5.jpg"
+			"title": "北京空气可以全年正常供应了！"
+			"detailUrl": "#"
 		},
 			    {
-			picUrl: "./pic/pic6.jpg"
-			title: "北京空气可以全年正常供应了！"
-			detailUrl: "#"
+			"picUrl": "./pic/pic6.jpg"
+			"title": "北京空气可以全年正常供应了！"
+			"detailUrl": "#"
 		},
 			    {
-			picUrl: "./pic/pic7.jpg"
-			title: "北京空气可以全年正常供应了！"
-			detailUrl: "#"
+			"picUrl": "./pic/pic7.jpg"
+			"title": "北京空气可以全年正常供应了！"
+			"detailUrl": "#"
 		},
 			    {
-			picUrl: "./pic/pic8.jpg"
-			title: "北京空气可以全年正常供应了！"
-			detailUrl: "#"
+			"picUrl": "./pic/pic8.jpg"
+			"title": "北京空气可以全年正常供应了！"
+			"detailUrl": "#"
+		},
+			    {
+			"picUrl": "./pic/pic9.jpg"
+			"title": "北京空气可以全年正常供应了！"
+			"detailUrl": "#"
+		},
+			    {
+			"picUrl": "./pic/pic10.jpg"
+			"title": "北京空气可以全年正常供应了！"
+			"detailUrl": "#"
 		},	    {
-			picUrl: "./pic/pic9.jpg"
-			title: "北京空气可以全年正常供应了！"
-			detailUrl: "#"
-		},
-			    {
-			picUrl: "./pic/pic10.jpg"
-			title: "北京空气可以全年正常供应了！"
-			detailUrl: "#"
-		},	    {
-			picUrl: "./pic/pic11.jpg"
-			title: "北京空气可以全年正常供应了！"
-			detailUrl: "#"
+			"picUrl": "./pic/pic11.jpg"
+			"title": "北京空气可以全年正常供应了！"
+			"detailUrl": "#"
 		}
+		
 		
 	],
 	"totalNumber" : "5"
