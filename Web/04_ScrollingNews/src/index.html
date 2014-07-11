@@ -40,7 +40,7 @@
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				var picSec = $('span#pictures');
-				var json = eval("("+xmlhttp.responseText+")");
+				var json = eval("("+"{'totalNumber':5}"+")");
 				newChild = document.createElement('div');
 				newChild.innerHTML = json.totalNumber;
 				picSec.append(newChild);
