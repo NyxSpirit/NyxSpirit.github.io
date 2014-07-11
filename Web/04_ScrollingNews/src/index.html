@@ -24,11 +24,11 @@
         mainNews.fadeTo('normal', 0.4, function(){
             mainNews[0].src = json.newsInfo[value].picUrl;
             $('div.newsTitle')[0].innerHTML = '<a href = ' + json.newsInfo[value].detailUrl + '>' + json.newsInfo[value].title + '</a>';
-            $('div.abbrPics:nth-child(curNews)').css('border',"");
+            $('div.abbrPics:nth-child('+String(curNews)+')').css('border',"");
             curNews = value;  
         });
         mainNews.fadeTo('normal',1,function(){
-            $('div.abbrPics:nth-child(curNews)').css('border',"5px solid yellow");
+            $('div.abbrPics:nth-child('+String(curNews)+')').css('border',"5px solid yellow");
         });
     }
 
