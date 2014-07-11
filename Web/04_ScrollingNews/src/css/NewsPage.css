@@ -3,6 +3,7 @@ section.picSection{
     border:0px solid red;
     display:block;
     position:absolute;
+    width:auto;
 }
 aside.commentSection{
     float:right;
@@ -52,6 +53,7 @@ aside.commentSection{
     height:435px;
     background-color: #bebebe;
     opacity: 0.2;
+    position:absolute;
 }
 .nextnews{
     float: right;
@@ -59,6 +61,7 @@ aside.commentSection{
     height:435px;
     background-color: #bebebe;
     opacity: 0.3;
+    position:absolute;
 }
 
 
@@ -78,7 +81,10 @@ img.mainPic{
 
 div.newsTitle{
     font: bold 35px arial;
+    position:absolute;
     z-index: 105;
+    background-color:#76b3ed;
+    opacity:0.5;
 }
 div.newsTitle a{
     text-decoration:none;
