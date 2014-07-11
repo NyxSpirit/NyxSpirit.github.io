@@ -28,7 +28,7 @@
             curNews = value;  
         });
         mainNews.fadeTo('normal',1,function(){
-            $('div.abbrPics').children()[curNews].setAttribute('border',"5px#FF0000");
+            $('div.abbrPics').children()[curNews].setAttribute('border',"5px#00FF00");
             
         });
     }
@@ -113,7 +113,7 @@
     	newCom.css('zIndex',200);
     	newCom.css('height',200);
     	newCom.css('width',200);
-    	$('img.mainPic').append(newCom);
+    	$('div.mainPic').append(newCom);
     }
     
     function getComments() {
