@@ -70,9 +70,13 @@
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				var picSec = $('span#pictures');
 				var json = eval("("+xmlhttp.responseText+")");
-				newChild = document.createElement('div');
-				newChild.innerHTML = json.totalNumber;
-				picSec.append(newChild);
+				
+				var newpic = $("<img/>");
+				newpic[0].src=json.picUrl1;
+				newpic.height("400");
+				newpic.width("400");
+				newpic.addClass('demoPic');
+				picSec.append(newpic);
             }
         }
         var url = './NewsSrc.json';
