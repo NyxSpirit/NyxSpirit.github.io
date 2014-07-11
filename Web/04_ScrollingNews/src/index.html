@@ -106,9 +106,9 @@
     {
     	var newCom = $('<div style="position:absolute;background-color:green;opacity:0.5"/>');
     	newCom[0].innerHTML = cnt;
-    	newCom[0].css('left',x)
-    	newCom[0].css('top',y);
-    	newCom[0].css('zIndex',200);
+    	newCom.css('left',x)
+    	newCom.css('top',y);
+    	newCom.css('zIndex',200);
     	$('img.mainPic').append(newCom);
     	
     }
@@ -157,7 +157,7 @@
     </aside>   
     <section class="picSection">
         <div class="prevNews" onclick ="picMainBack()" style = "cursor:pointer"> 
-            上一张
+            <h1> < </h1>
         </div>
         <div class="mainPic">
             <div class="newsTitle">
