@@ -30,8 +30,8 @@ aside.commentSection{
 div.slider{
     height: 150px;
     border:2px dashed #bebebe;
-    background-image:url('../res/wave-bg.jpg');
-    padding-top:30px;
+    background-color:blue;
+    padding-top:10px;
     overflow:hidden;
 }
 .prevGroup{
