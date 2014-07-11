@@ -24,7 +24,7 @@ aside.commentSection{
 }
 .mainPic{
     height:475px;
-    width:1000px;
+    width:900px;
     position:relative;
     top:0px;
     right:0px;
@@ -33,6 +33,7 @@ aside.commentSection{
     height: 150px;
     border:2px dashed #bebebe;
     background-image:'../res/wave-bg.jpg';
+    padding-top:10px;
     overflow:hidden;
 }
 .prevGroup{
@@ -74,7 +75,7 @@ img.abbrPic{
 img.mainPic{
 	height:475px;
 	width:inherit;
-
+	float:left;
 }
 
 div.newsTitle{
