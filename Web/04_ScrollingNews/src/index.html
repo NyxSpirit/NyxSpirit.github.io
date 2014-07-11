@@ -28,7 +28,7 @@
             curNews = value;  
         });
         mainNews.fadeTo('normal',1,function(){
-            $('div.abbrPics').children()[curNews].setAttribute('border',"5px#FFFFFF");
+            $('div.abbrPics').children()[curNews].setAttribute('border',"5px#FF0000");
             
         });
     }
@@ -94,15 +94,13 @@
     };
     function picMainBack() {
         if (curNews > 0){
-            curNews = curNews - 1;
-            setCurrent(curNews);
+            setCurrent(curNews - 1);
         }
     };
     function picMainNext() { 
         
         if (curNews < json.totalNumber-1){
-            curNews = curNews + 1;
-            setCurrent(curNews);
+            setCurrent(curNews + 1);
         }
     };   
     
