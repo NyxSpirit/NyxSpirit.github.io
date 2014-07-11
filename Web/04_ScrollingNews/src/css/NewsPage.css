@@ -11,6 +11,7 @@ aside.commentSection{
     float:right;
     margin-top:20px;
     width: 300px;
+    border:10px 10px 10px 0px;
     background-color:black;
     color:white;
     position:absolute;
@@ -106,5 +107,5 @@ div.divLine{
     height:0px;
 }
 div a img{
-    background:gray;
+    background-color:gray;
 }
