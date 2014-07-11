@@ -27,11 +27,11 @@ aside.commentSection{
     width:900px;
     float:left;
 }
-.abbrPics{
+div.slider{
     height: 150px;
     border:2px dashed #bebebe;
-    background-image:url('res/wave-bg.jpg');
-    padding-top:10px;
+    background-image:url('../res/wave-bg.jpg');
+    padding-top:30px;
     overflow:hidden;
 }
 .prevGroup{
