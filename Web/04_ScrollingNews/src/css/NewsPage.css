@@ -2,6 +2,7 @@ section.picSection{
     margin-left: 30px;
     border:0px solid red;
     display:block;
+    position:absolute;
 }
 aside.commentSection{
     float:right;
@@ -24,11 +25,12 @@ aside.commentSection{
 }
 .mainPic{
     height:435px;
-	background-image:'res/wave-bg.jpg';
+	
 }
 .abbrPics{
     height: 150px;
     border:2px dashed #bebebe;
+    background-image:'../res/wave-bg.jpg';
 }
 .prevGroup{
     float: left;
@@ -68,7 +70,7 @@ img.abbrPic{
 }
 img.mainPic{
 	height:435px;
-	width:100%;
+	width:inherit;
 	position:absolute;
 	top:0px;
 	left:0px;
@@ -76,7 +78,7 @@ img.mainPic{
 
 div.newsTitle{
     font: bold 35px arial;
-    z-index: 5;
+    z-index: 105;
 }
 div.newsTitle a{
     text-decoration:none;
