@@ -24,9 +24,12 @@
         mainNews.fadeTo('normal', 0.4, function(){
             mainNews[0].src = json.newsInfo[value].picUrl;
             $('div.newsTitle')[0].innerHTML = '<a href = ' + json.newsInfo[value].detailUrl + '>' + json.newsInfo[value].title + '</a>';
-            curNews = value;     
+            $('div.abbrPics:nth-child(curNews)').css('border',"");
+            curNews = value;  
         });
-        mainNews.fadeTo('normal',1);
+        mainNews.fadeTo('normal',1,function(){
+            $('div.abbrPics:nth-child(curNews)').css('border',"5px solid yellow");
+        });
     }
 
     function LoadNews(){
@@ -109,8 +112,9 @@
     	newCom.css('left',x)
     	newCom.css('top',y);
     	newCom.css('zIndex',200);
+    	newCom.css('height',200);
+    	newCom.css('width',200);
     	$('img.mainPic').append(newCom);
-    	
     }
     
     function getComments() {
@@ -137,7 +141,7 @@
         xmlhttp.open("GET", url, true);
         xmlhttp.send();
     }
-    setTimeout('SlideOn()', 2000);
+    setTimeout('SlideOn()', 5000);
     
 </script>
 </head>
