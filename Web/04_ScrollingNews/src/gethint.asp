@@ -1,6 +1,7 @@
 ﻿<html>
 <body>
-<% response.write('Hello'); %>
-    
+{
+"text": 'only a test' ;
+}
 </body>
 </html>
