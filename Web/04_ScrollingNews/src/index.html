@@ -40,9 +40,9 @@
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				var picSec = $('span#pictures');
-				
+				var json = eval("("+xmlhttp.responseText+")");
 				newChild = document.createElement('div');
-				newChild.innerHTML = xmlhttp.responseText;
+				newChild.innerHTML = json.totalNumber;
 				picSec.append(newChild);
             }
         }
