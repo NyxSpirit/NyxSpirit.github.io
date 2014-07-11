@@ -13,56 +13,15 @@
 
     $('document').ready(LoadNews());
     var json;
+    var curNews = 0;
 
-    function showHint(str) {
-        var xmlhttp;
-        if (str.length == 0) {
-            document.getElementById("txtHint").innerHTML = "";
-            return;
-        }
-        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        }
-        else {// code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-            }
-        }
-        var url = './gethint.asp';
-        xmlhttp.open("GET", url + "?q=" + str, true);
-        xmlhttp.send();
+    function setCurrent(value) {        
+        var mainNews = $("img.mainPic");
+        mainNews[0].src = json.newsInfo[value].picUrl;
+        $('div.newsTitle')[0].innerHTML = '<a href = ' + json.newsInfo[value].detailUrl + '>' + json.newsInfo[value].title + '</a>';
+        curNews = value;
     }
-	
-    function showPic(num) {
-        var xmlhttp;
-        if (num == 0) {
-            $('span#pictures').innerHTML = "";
-            return;
-        }
-        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        }
-        else {// code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-				var picSec = $('span#pictures');
-				json = eval("("+xmlhttp.responseText+")");
-				newChild = document.createElement('div');
-				newChild.innerHTML = json.totalNumber;
-				picSec.append(newChild);
-            }
-        }
-        var url = './NewsSrc.json';
-        xmlhttp.open("GET", url, true);
-        xmlhttp.send();
-    }
-    
     function LoadNews(){
         var xmlhttp;
 
@@ -80,6 +39,7 @@
                 mainNews[0].src = json.newsInfo[0].picUrl;
                 $('div.mainPic').append(mainNews);
                 $('div.newsTitle')[0].innerHTML = '<a href = ' + json.newsInfo[0].detailUrl + '>' +json.newsInfo[0].title + '</a>';
+                curNews = 0;
 
                 var picSec = $('div.abbrPics');
 				for (i in json.newsInfo) {
@@ -94,6 +54,15 @@
         xmlhttp.open("GET", url, true);
         xmlhttp.send();
     }
+
+    function SlideOn() {
+        if (curNews < json.totalNumber - 1) setCurrent(curNews + 1);
+        else setCurrent(0);
+        setTimeout('SlideOn()', 2000);
+    }
+    
+    setTimeout('SlideOn()', 2000);
+    
 </script>
 </head>
 
@@ -111,18 +80,20 @@
         </div>
     </aside>   
     <section class="picSection">
+        <div class="prevNews">
+            上一张
+        </div>
         <div class="mainPic">
-            <div class="prevNews">
-                上一张
-            </div>
-            <div class="nextNews">
-                下一张
-            </div>
             <div class="newsTitle">
                 <a>No News Now.</a>
             </div>
+        </div>       
+        <div class="nextNews">
+            下一张
         </div>
-
+           
+        <div style ="clear:both"></div>
+        
         <div class="prevGroup">
             上一批
         </div>

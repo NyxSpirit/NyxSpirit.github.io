@@ -25,9 +25,7 @@ aside.commentSection{
 .mainPic{
     height:475px;
     width:900px;
-    position:relative;
-    top:0px;
-    right:0px;
+    float:left;
 }
 .abbrPics{
     height: 150px;
