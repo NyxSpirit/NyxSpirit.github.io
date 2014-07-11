@@ -1,4 +1,8 @@
 {
 	"picUrl1" : "./pic/pic1.jpg",
-	"totolNumber" : "5"
+	"picUrl2" : "./pic/pic2.jpg",
+	"picUrl3" : "./pic/pic3.jpg",
+	"picUrl4" : "./pic/pic4.jpg",
+	"picUrl5" : "./pic/pic5.jpg",
+	"totalNumber" : "5"
 }
