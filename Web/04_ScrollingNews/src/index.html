@@ -46,7 +46,8 @@
 				for (i in json.newsInfo) {
 				    var newpic = $("<img/>");
 				    newpic[0].src = json.newsInfo[i].picUrl;
-				    newpic.css('left',i*175);
+				    newpic.css('left',5);
+				    newpic.css('top',0)
 				    newpic.css('position','relative');
 				    newpic.addClass('abbrPic');
 				    picSec.append(newpic);
@@ -68,14 +69,14 @@
     
     function picSlideBack() {
         var slider = $('div.abbrPics');
-        if (curSliderPos >= 175) {
+        if (curSliderPos <= -175) {
             curSliderPos = curSliderPos + 175;
             slider.animate({left:  (String(curSliderPos) + 'px')}, 'slow');
         }
     };
     function picSlideNext() {
         var slider = $('div.abbrPics');
-        if (curSliderPos <= 175*(json.totalNumber-1)){
+        if (curSliderPos >= -175*(json.totalNumber-1)){
             curSliderPos = curSliderPos - 175;
             slider.animate({left:  (String(curSliderPos) + 'px')}, 'slow');
         }
