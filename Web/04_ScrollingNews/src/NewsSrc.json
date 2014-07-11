@@ -1,13 +1,13 @@
 {
 	"newsInfo": [
 	    {
-			picUrl = "./pic/pic1.jpg"
+			picUrl: "./pic/pic1.jpg"
 		},
 		{
-			picUrl = "./pic/pic2.jpg"
+			picUrl: "./pic/pic2.jpg"
 		},
 		{
-			picUrl = "./pic/pic3.jpg"
+			picUrl: "./pic/pic3.jpg"
 		}
 	],
 	"totalNumber" : "5"
