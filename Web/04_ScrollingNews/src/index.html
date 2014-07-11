@@ -53,7 +53,7 @@
         xmlhttp.send();
     }
     
-    function LoadNews(){
+    function LoadNews(num){
    	var xmlhttp;
         if (num == 0) {
             $('span#pictures').innerHTML = "";
@@ -81,7 +81,7 @@
 </script>
 </head>
 <body>
-$('document').ready=LoadNews();
+$('document').ready(LoadNews(5));
 <button onclick = "showPic(5)"> ShowPic</button>
 <p>
 	<span id = "pictures">
