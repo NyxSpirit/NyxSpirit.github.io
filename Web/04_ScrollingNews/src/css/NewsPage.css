@@ -71,9 +71,7 @@ img.abbrPic{
 img.mainPic{
 	height:435px;
 	width:inherit;
-	position:absolute;
-	top:0px;
-	left:0px;
+
 }
 
 div.newsTitle{
