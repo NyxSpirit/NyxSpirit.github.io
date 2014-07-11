@@ -30,7 +30,7 @@ aside.commentSection{
 .abbrPics{
     height: 150px;
     border:2px dashed #bebebe;
-    background-image:'../res/wave-bg.jpg';
+    background-image:url('res/wave-bg.jpg');
     padding-top:10px;
     overflow:hidden;
 }
