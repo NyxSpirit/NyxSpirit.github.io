@@ -11,7 +11,7 @@
 
 <script type="text/javascript">
 
-    $('aside')[0].style.left = $('body')[0].clientWidth-300;
+    
     $('document').ready(LoadNews());
 
     var json;
@@ -59,6 +59,7 @@
 				}
 		picSec.css('left',0);
 		picSec.css('position','relative');
+		$('aside')[0].style.left = $('body')[0].clientWidth-300;
             }
         }
         var url = './NewsSrc.json';
