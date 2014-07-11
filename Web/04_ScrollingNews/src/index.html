@@ -48,10 +48,9 @@
 				    newpic[0].src = json.newsInfo[i].picUrl;
 				    newpic.addClass('abbrPic');
 				    picSec.append(newpic);
-
 				}
-				    picSec[0].childNodes.css('left',String(i*175)+'px');
-				    picSec[0].childNodes.css('position','absolute');
+		picSec.css('left',0);
+		picSec.css('position','absolute');
             }
         }
         var url = './NewsSrc.json';
