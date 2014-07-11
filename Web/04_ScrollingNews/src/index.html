@@ -1,6 +1,8 @@
 ﻿<html>
 <head>
     <title>hello?</title>
+    <meta charset='utf8'>
+    <link rel='stylesheet' type='text/css' src='NewsPage.css'>
     <script type="text/javascript" src="http://learn.cic.tsinghua.edu.cn:80/res/common/js/library/jquery/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
     function showHint(str) {
@@ -25,8 +27,34 @@
         xmlhttp.send();
     }
 	
-	function showPic(num) {
+    function showPic(num) {
         var xmlhttp;
+        if (num == 0) {
+            $('span#pictures').innerHTML = "";
+            return;
+        }
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				var picSec = $('span#pictures');
+				var json = eval("("+xmlhttp.responseText+")");
+				newChild = document.createElement('div');
+				newChild.innerHTML = json.totalNumber;
+				picSec.append(newChild);
+            }
+        }
+        var url = './NewsSrc.json';
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+    }
+    
+    function LoadNews(){
+   	var xmlhttp;
         if (num == 0) {
             $('span#pictures').innerHTML = "";
             return;
@@ -53,7 +81,7 @@
 </script>
 </head>
 <body>
-
+$('document').ready=LoadNews();
 <button onclick = "showPic(5)"> ShowPic</button>
 <p>
 	<span id = "pictures">
@@ -63,37 +91,3 @@
 </body>
 </html>
 
-
-
-
-<!--<h3>请在下面的输入框中键入字母（A - Z）：</h3>
-<form action=""> 
-姓氏：<input type="text" id="txt1" onkeyup="showHint(this.value)" />
-</form>
-<p>建议：<span id="txtHint"></span></p> <html>
-    <head>
-        <title>Example</title>
-        <script type ="text/javascript">
-            function handler() {
-                if (this.readyState == this.DONE && this.status == 200) {
-                    processData(JSON.parse(this.responseText));
-                    console.log(xmlhttp.responseText);
-                }
-            }
-            function loadDoc() {
-                var xmlhttp;
-                xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = handler;
-                //var url = 'http://api.douban.com/book/subject/isbn/9787111187776'
-                var url = 'file:///C:/Users/Neo/Desktop/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E5%89%8D%E7%AB%AF%E4%BD%9C%E4%B8%9A/NewsSrc.asp';
-                xmlhttp.open("GET", url, true);
-                xmlhttp.send();
-            }
-        </script>
-    </head>
-    <body>
-        <div onclick ="loadDoc()">
-            LoadDocuments.
-        </div>
-    </body>
-</html>-->
