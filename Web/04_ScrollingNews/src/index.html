@@ -21,12 +21,12 @@
 
     function setCurrent(value) {
     	var mainNews = $("img.mainPic");
-        mainNews.fadeTo('fast', 0.4, function(){
+        mainNews.fadeTo('normal', 0.4, function(){
             mainNews[0].src = json.newsInfo[value].picUrl;
             $('div.newsTitle')[0].innerHTML = '<a href = ' + json.newsInfo[value].detailUrl + '>' + json.newsInfo[value].title + '</a>';
             curNews = value;     
         });
-        mainNews.fadeIn();
+        mainNews.fadeTo('normal',1);
     }
 
     function LoadNews(){
@@ -108,6 +108,7 @@
     	newCom[0].innerHTML = cnt;
     	newCom[0].css('left',x)
     	newCom[0].css('top',y);
+    	newCom[0].css('zIndex',200);
     	$('img.mainPic').append(newCom);
     	
     }
@@ -143,7 +144,7 @@
 
 <body>
     <aside class ="commentSection">
-        <div class ="showComment" onclick = "getComments()">
+        <div class ="showComment" onclick = "getComments()" style = "cursor:pointer">
             <p class ="center">显示评论</p>
         </div>
         <div class ="addComment">
