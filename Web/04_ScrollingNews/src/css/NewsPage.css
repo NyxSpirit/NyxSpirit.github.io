@@ -1,6 +1,6 @@
 ﻿body
 {
-    background-color:#feffc2;
+    background-color:black;
 }
 section.picSection{
     margin-left: 20px;
@@ -13,8 +13,8 @@ aside.commentSection{
     width: 300px;
     border-left-width:10px;
     border-top-width:10px;
-    background-color:black;
-    color:white;
+    background-color:#feffc2;
+    color:black;
     position:absolute;
 }
 div.switchPage{
