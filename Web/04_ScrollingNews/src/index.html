@@ -1,4 +1,4 @@
-<html>
+ï»¿<html>
 <head>
     <title>hello?</title>
 <script type="text/javascript">
@@ -16,30 +16,61 @@
         }
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("txtHint").innerHTML = str + ' got a response of ' + xmlhttp.responseText;
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
             }
         }
         var url = './gethint.asp';
         xmlhttp.open("GET", url + "?q=" + str, true);
         xmlhttp.send();
     }
+	
+	function showPic(num) {
+        var xmlhttp;
+        if (num == 0) {
+            $('span#pictures').innerHTML = "";
+            return;
+        }
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+				var picSec = $('span#pictures');
+				json = eval("("+xmlhttp.responseText+")");
+				newChild = document.createElement('div');
+				newChild.innerHTML = json.totolNumber;
+				picSec.appendChild(newChild);
+            }
+        }
+        var url = './gethint.asp';
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+    }
 </script>
 </head>
 <body>
 
-<h3>ÇëÔÚÏÂÃæµÄÊäÈë¿òÖĞ¼üÈë×ÖÄ¸£¨A - Z£©£º</h3>
-<form action=""> 
-ĞÕÊÏ£º<input type="text" id="txt1" onkeyup="showHint(this.value)" />
-</form>
-<p>½¨Òé£º<span id="txtHint"></span></p> 
-
+<button onclick = "showPic(5)"> ShowPic</button>
+<p>
+	<span id = "pictures">
+	
+	</span>
+</p>
 </body>
 </html>
 
 
 
 
-<!--<html>
+<!--<h3>è¯·åœ¨ä¸‹é¢çš„è¾“å…¥æ¡†ä¸­é”®å…¥å­—æ¯ï¼ˆA - Zï¼‰ï¼š</h3>
+<form action=""> 
+å§“æ°ï¼š<input type="text" id="txt1" onkeyup="showHint(this.value)" />
+</form>
+<p>å»ºè®®ï¼š<span id="txtHint"></span></p> <html>
     <head>
         <title>Example</title>
         <script type ="text/javascript">

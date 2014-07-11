@@ -1,7 +1,8 @@
-<html>
+﻿<html>
 <body>
 {
-"text": 'only a test' ;
+	"picUrl1" : "./pic/pic1.jpg",
+	"totolNumber" : "5"
 }
 </body>
-</html>
+</html>	
