@@ -12,6 +12,7 @@
 <script type="text/javascript">
 
     $('document').ready(LoadNews());
+    var json;
 
     function showHint(str) {
         var xmlhttp;
@@ -49,8 +50,9 @@
         }
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
 				var picSec = $('span#pictures');
-				var json = eval("("+xmlhttp.responseText+")");
+				json = eval("("+xmlhttp.responseText+")");
 				newChild = document.createElement('div');
 				newChild.innerHTML = json.totalNumber;
 				picSec.append(newChild);
@@ -72,7 +74,12 @@
         }
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                var json = eval("(" + xmlhttp.responseText + ")");
+                json = eval("(" + xmlhttp.responseText + ")");
+
+                var mainNews = $("<img class = 'mainPic'/>");
+                mainNews[0].src = json.newsInfo[0].picUrl;
+                $('div.mainPic').append(mainNews);
+                $('div.newsTitle')[0].innerHTML = '<a href = ' + json.newsInfo[0].detailUrl + '>' +json.newsInfo[0].title + '</a>';
 
                 var picSec = $('div.abbrPics');
 				for (i in json.newsInfo) {
@@ -110,6 +117,9 @@
             </div>
             <div class="nextNews">
                 下一张
+            </div>
+            <div class="newsTitle">
+                <a>No News Now.</a>
             </div>
         </div>
 

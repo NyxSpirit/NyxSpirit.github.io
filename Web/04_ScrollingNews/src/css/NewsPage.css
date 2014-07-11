@@ -24,11 +24,12 @@ aside.commentSection{
     flex-align:center;
 }
 .mainPic{
-    height:400px;
+    height:435px;
+	background-image:'res/wave-bg.jpg';
 }
 .abbrPics{
     height: 150px;
-    border:5px dashed #bebebe;
+    border:2px dashed #bebebe;
 }
 .prevGroup{
     float: left;
@@ -47,21 +48,33 @@ aside.commentSection{
 .prevNews{
     float: left;
     width:30px;
-    height:400px;
+    height:435px;
     background-color: #bebebe;
     opacity: 0.2;
 }
 .nextnews{
     float: right;
     width:30px;
-    height:400px;
+    height:435px;
     background-color: #bebebe;
     opacity: 0.3;
 }
 
 
-.abbrPic{
+img.abbrPic{
     width:150px;
     height:130px;
     padding:5px 10px;
+}
+img.mainPic{
+	height:435px;
+	width:600px;
+}
+
+.newsTitle{
+    font: bold 35px arial;
+}
+div.newsTitle a{
+    text-decoration:none;
+    color:black;
 }
