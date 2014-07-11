@@ -28,7 +28,8 @@
             curNews = value;  
         });
         mainNews.fadeTo('normal',1,function(){
-            $('div.abbrPics').children()[curNews].setAttribute('border',"5px#00FF00");
+            $('div.abbrPics').children()[curNews].setAttribute('border-width',"5px");
+            $('div.abbrPics').children()[curNews].setAttribute('border-color',"yellow");
             
         });
     }
@@ -106,12 +107,10 @@
     
     function PutOnComments(x, y, cnt)
     {
-    	var newCom = $('<div style="position:absolute;background-color:green;opacity:0.5"/>');
+    	var newCom = $('<div style="position:absolute;background-color:#feffc2;opacity:0.5"/>');
     	newCom[0].innerHTML = cnt;
     	newCom.css('left',x)
     	newCom.css('top',y);
-    	newCom.css('zIndex',200);
-    	newCom.css('height',200);
     	newCom.css('width',200);
     	$('div.mainPic').append(newCom);
     }
@@ -165,7 +164,7 @@
 
         <a title="分享到" style="float:right;"><img src="res/facebook.png" /></a>
         <a title="分享到" style="float:right;"><img src="res/twitter.png" /></a>
-        <a title="分享到" style="float:right;"><img src="res/share.png" /></a>
+        <a title="分享到" style="background-color:gray;float:right;"><img src="res/share.png" /></a>
         <div class ="otherFunc">
             
         </div>
