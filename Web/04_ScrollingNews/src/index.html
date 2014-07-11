@@ -5,6 +5,7 @@
     <link rel='stylesheet' type='text/css' src='NewsPage.css'>
     <script type="text/javascript" src="http://learn.cic.tsinghua.edu.cn:80/res/common/js/library/jquery/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
+    $('document').ready(LoadNews(5));
     function showHint(str) {
         var xmlhttp;
         if (str.length == 0) {
@@ -81,7 +82,7 @@
 </script>
 </head>
 <body>
-$('document').ready(LoadNews(5));
+
 <button onclick = "showPic(5)"> ShowPic</button>
 <p>
 	<span id = "pictures">
