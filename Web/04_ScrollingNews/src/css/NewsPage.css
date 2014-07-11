@@ -1,3 +1,7 @@
+﻿body
+{
+    background-color:#feffc2;
+}
 section.picSection{
     margin-left: 20px;
     border:0px solid red;
@@ -12,15 +16,26 @@ aside.commentSection{
     color:white;
     position:absolute;
 }
+div.switchPage{
+    float:right;
+}
 .showComment{
-    height: 100px;
+    margin:0;
+    padding:0;
+    height: 50px;
+    width:200px;
     padding: 10px;
     background-color:yellow;
     color:black;
 }
+div.addComment{
+    height:250px;
+    margin:0;
+    padding:0;
+    color:aliceblue;
+}
 .center{
     text-align:center;
-    flex-align:center;
 }
 .mainPic{
     height:475px;
@@ -36,41 +51,37 @@ div.slider{
     overflow:hidden;
     float: left;
 }
-.prevGroup{
+.prevGroup,.nextGroup{
     float: left;
     width:30px;
     height:150px;
     background-color: #bebebe;
     opacity: 0.3;
-}
-.nextGroup{
-    float: left;
-    width:30px;
-    height:150px;
-    background-color: #bebebe;
-    opacity: 0.3;
-}
-.prevNews{
-    float: left;
-    width:45px;
-    height:475px;
-    background-color: #bebebe;
-    opacity: 0.2;
-}
-.nextnews{
-    float: left;
-    width:45px;
-    height:475px;
-    background-color: #bebebe;
-    opacity: 0.3;
+    line-height:150px;
+    font-size:x-large;
+    font-weight:bolder;
 }
 
+.prevNews,.nextNews{
+    float: left;
+    width:45px;
+    height:475px;
+    background-color: #bebebe;
+    opacity: 0.3;
+    line-height:475px;
+    font-size:x-large;
+    font-weight:bolder;
+}
+.nextGroup, .nextNews
+{
+    text-align: right;
+}
 
 img.abbrPic{
     width:150px;
     height:130px;
-    padding:10px 12px;
-    
+    margin:5px 7px;
+    border:5px solid blue;
 }
 img.mainPic{
 	height:475px;
@@ -88,4 +99,10 @@ div.newsTitle{
 div.newsTitle a{
     text-decoration:none;
     color:black;
+}
+div.divLine{
+    padding:0;
+    border:1px solid #76b3ed;
+    margin:0;
+    height:0px;
 }

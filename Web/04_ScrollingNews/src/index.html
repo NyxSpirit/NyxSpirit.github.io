@@ -147,20 +147,32 @@
 
 <body>
     <aside class ="commentSection">
+        <div class ="switchPage" >
+            <h3 onclick = "getComments()" style = "margin:0;cursor:pointer">上一列</h3>
+            <h3 onclick = "getComments()" style = "cursor:pointer">下一列</h3>
+        </div> 
         <div class ="showComment" onclick = "getComments()" style = "cursor:pointer">
-            <p class ="center">显示评论</p>
+            <h1 class ="center" style="margin-top:8px">显示评论</h1>
         </div>
+        <hr style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15);width:80%;color:#987cb9;height:1px;"/>
         <div class ="addComment">
-            <h1>添加评论</h1>
-            <input />
+            <h3>添加评论</h3>
+            
         </div>
+        <a title="暂存" style="float:right;"><img src="res/floppy-disc.png" /></a>
+        <a title="发表评论" style="float:right;"><img src="res/comment.png" /></a>
+        <hr style="clear:both;FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15);width:80%;color:#987cb9;height:1px;"/>
+
+        <a title="分享到" style="float:right;"><img src="res/facebook.png" /></a>
+        <a title="分享到" style="float:right;"><img src="res/twitter.png" /></a>
+        <a title="分享到" style="float:right;"><img src="res/share.png" /></a>
         <div class ="otherFunc">
-            <h1>分享</h1>
+            
         </div>
     </aside>   
     <section class="picSection">
         <div class="prevNews" onclick ="picMainBack()" style = "cursor:pointer"> 
-            <h1> < </h1>
+             < 
         </div>
         <div class="mainPic">
             <div class="newsTitle">
@@ -168,13 +180,13 @@
             </div>
         </div>       
         <div class="nextNews" onclick ="picMainNext()" style = "cursor:pointer">
-            下一张
+            >
         </div>
            
         <div style ="clear:both;height:20px"></div>
         
         <div class="prevGroup" onclick ="picSlideBack()" style = "cursor:pointer">
-            上一批
+            < 
         </div>
         <div class="slider">
         <div class="abbrPics">
@@ -182,7 +194,7 @@
         </div>
         </div>        
         <div class="nextGroup" onclick ="picSlideNext()" style = "cursor:pointer">
-            下一批
+            >
         </div>
         <div style ="clear:both;height:0px"></div>
     
