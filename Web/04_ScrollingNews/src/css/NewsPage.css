@@ -1,0 +1,66 @@
+section.picSection{
+    margin-left: 30px;
+    border:0px solid red;
+    display:block;
+    position:relative;
+}
+aside.commentSection{
+    float:right;
+    margin-top:20px;
+    width: 300px;
+    border:10px solid black;
+    background-color:black;
+    color:white;
+    display:block;
+}
+.showComment{
+    height: 100px;
+    padding: 10px;
+    background-color:yellow;
+    color:black;
+}
+.center{
+    text-align:center;
+    flex-align:center;
+}
+.mainPic{
+    height:400px;
+}
+.abbrPics{
+    height: 150px;
+    border:5px dashed #bebebe;
+}
+.prevGroup{
+    float: left;
+    width:30px;
+    height:150px;
+    background-color: #bebebe;
+    opacity: 0.3;
+}
+.nextGroup{
+    float: right;
+    width:30px;
+    height:150px;
+    background-color: #bebebe;
+    opacity: 0.3;
+}
+.prevNews{
+    float: left;
+    width:30px;
+    height:400px;
+    background-color: #bebebe;
+    opacity: 0.2;
+}
+.nextnews{
+    float: right;
+    width:30px;
+    height:400px;
+    background-color: #bebebe;
+    opacity: 0.3;
+}
+
+
+.abbrPic{
+    width:150px;
+    height:130px;
+}

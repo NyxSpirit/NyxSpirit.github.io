@@ -1,11 +1,18 @@
 ﻿<html>
 <head>
-    <title>hello?</title>
+    
     <meta charset='utf8'>
-    <link rel='stylesheet' type='text/css' src='NewsPage.css'>
+    
+    <title>滚动新闻(FakeNyx)</title>
+    
+    <link rel='stylesheet' type='text/css' href='css/NewsPage.css'>
+    
     <script type="text/javascript" src="http://learn.cic.tsinghua.edu.cn:80/res/common/js/library/jquery/jquery-1.7.2.min.js"></script>
+
 <script type="text/javascript">
-    $('document').ready(LoadNews(5));
+
+    $('document').ready(LoadNews());
+
     function showHint(str) {
         var xmlhttp;
         if (str.length == 0) {
@@ -54,12 +61,9 @@
         xmlhttp.send();
     }
     
-    function LoadNews(num){
-   	var xmlhttp;
-        if (num == 0) {
-            $('span#pictures').innerHTML = "";
-            return;
-        }
+    function LoadNews(){
+        var xmlhttp;
+
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
         }
@@ -68,15 +72,15 @@
         }
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-				var picSec = $('span#pictures');
-				var json = eval("("+xmlhttp.responseText+")");
-				
-				var newpic = $("<img/>");
-				newpic[0].src=json.picUrl1;
-				newpic.height("400");
-				newpic.width("400");
-				newpic.addClass('demoPic');
-				picSec.append(newpic);
+                var json = eval("(" + xmlhttp.responseText + ")");
+
+                var picSec = $('div.abbrPics');
+				for (i in json.newsInfo) {
+				    var newpic = $("<img/>");
+				    newpic[0].src = json.newsInfo[i].picUrl;
+				    newpic.addClass('abbrPic');
+				    picSec.append(newpic);
+				}
             }
         }
         var url = './NewsSrc.json';
@@ -85,14 +89,44 @@
     }
 </script>
 </head>
-<body>
 
-<button onclick = "showPic(5)"> ShowPic</button>
-<p>
-	<span id = "pictures">
-	
-	</span>
-</p>
+<body>
+    <aside class ="commentSection">
+        <div class ="showComment">
+            <p class ="center">显示评论</p>
+        </div>
+        <div class ="addComment">
+            <h1>添加评论</h1>
+            <input />
+        </div>
+        <div class ="otherFunc">
+            <h1>分享</h1>
+        </div>
+    </aside>   
+    <section class="picSection">
+        <div class="mainPic">
+            <div class="prevNews">
+                上一张
+            </div>
+            <div class="nextNews">
+                下一张
+            </div>
+        </div>
+
+        <div class="prevGroup">
+            上一批
+        </div>
+        <div class="nextGroup">
+            下一批
+        </div>
+        <div class="abbrPics">
+
+        </div>
+    </section>
+
+
+
+
 </body>
 </html>
 

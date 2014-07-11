@@ -1,8 +1,14 @@
 {
-	"picUrl1" : "./pic/pic1.jpg",
-	"picUrl2" : "./pic/pic2.jpg",
-	"picUrl3" : "./pic/pic3.jpg",
-	"picUrl4" : "./pic/pic4.jpg",
-	"picUrl5" : "./pic/pic5.jpg",
+	"newsInfo": [
+	    {
+			picUrl = "./pic/pic1.jpg"
+		},
+		{
+			picUrl = "./pic/pic2.jpg"
+		},
+		{
+			picUrl = "./pic/pic3.jpg"
+		}
+	],
 	"totalNumber" : "5"
 }
