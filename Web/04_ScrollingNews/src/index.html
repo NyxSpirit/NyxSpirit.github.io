@@ -46,11 +46,12 @@
 				for (i in json.newsInfo) {
 				    var newpic = $("<img/>");
 				    newpic[0].src = json.newsInfo[i].picUrl;
+				    newpic.css('left',i*175);
 				    newpic.addClass('abbrPic');
 				    picSec.append(newpic);
 				}
 		picSec.css('left',0);
-		picSec.css('position','absolute');
+		picSec.css('position','relative');
             }
         }
         var url = './NewsSrc.json';
