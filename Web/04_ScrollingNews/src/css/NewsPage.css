@@ -9,11 +9,11 @@ section.picSection{
 }
 aside.commentSection{
     float:right;
-    margin-top:20px;
+    margin-top:10px;
     width: 300px;
-    border-top:10px;
-    border-left:10px;
-    background-color:gray;
+    border-left-width:10px;
+    border-top-width:10px;
+    background-color:black;
     color:white;
     position:absolute;
 }
@@ -107,6 +107,7 @@ div.divLine{
     margin:0;
     height:0px;
 }
-div a img{
+aside a{
+    margin:2px;
     background-color:gray;
 }

@@ -9,148 +9,171 @@
     
     <script type="text/javascript" src="http://learn.cic.tsinghua.edu.cn:80/res/common/js/library/jquery/jquery-1.7.2.min.js"></script>
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
-    
-    $('document').ready(LoadNews());
+        $('document').ready(LoadNews());
 
-    var json;
-    var curNews = 0;
-    var curSliderPos = 0;
-    var comments;
+        var maxNumPerPage = 5;
+        var isCommentsOn = false;
+        var json;
+        var curNews = 0;
+        var curSliderPos = 0;
+        var comments;
+        var curCommentsPage;
 
-    function setCurrent(value) {
-    	var mainNews = $("img.mainPic");
-        mainNews.fadeTo('normal', 0.4, function(){
-            mainNews[0].src = json.newsInfo[value].picUrl;
-            $('div.newsTitle')[0].innerHTML = '<a href = ' + json.newsInfo[value].detailUrl + '>' + json.newsInfo[value].title + '</a>';
-            $('div.abbrPics').children()[curNews].setAttribute('border',"none");
-            curNews = value;  
-        });
-        mainNews.fadeTo('normal',1,function(){
-            $('div.abbrPics').children()[curNews].setAttribute('border-width',"5px");
-            $('div.abbrPics').children()[curNews].setAttribute('border-color',"yellow");
+        function setCurrent(value) {
+    	    var mainNews = $("img.mainPic");
+            mainNews.fadeTo('normal', 0.4, function(){
+                mainNews[0].src = json.newsInfo[value].picUrl;
+                $('div.newsTitle')[0].innerHTML = '<a href = ' + json.newsInfo[value].detailUrl + '>' + json.newsInfo[value].title + '</a>';
+                $('div.abbrPics').children()[curNews].style.border = "5px solid blue";
+                curNews = value;  
+            });
+            mainNews.fadeTo('normal',1,function(){
+                $('div.abbrPics').children()[curNews].style.border = "5px solid yellow";
             
-        });
-    }
-
-    function LoadNews(){
-        var xmlhttp;
-
-        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest(); 
+            });
         }
-        else {// code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                json = eval("(" + xmlhttp.responseText + ")");
 
-                var mainNews = $("<img class = 'mainPic'/>");
-                mainNews[0].src = json.newsInfo[0].picUrl;
-                $('div.mainPic').append(mainNews);
-                $('div.newsTitle')[0].innerHTML = '<a href = ' + json.newsInfo[0].detailUrl + '>' +json.newsInfo[0].title + '</a>';
-                curNews = 0;
+        function LoadNews(){
+            var xmlhttp;
 
-                var picSec = $('div.abbrPics');
-				for (i in json.newsInfo) {
-				    var newpic = $("<img/>");
-				    newpic[0].src = json.newsInfo[i].picUrl;
-				    newpic.css('left',5+(i>=7)*(1218));
-				    newpic.css('top',(i>=7)*(-150));
-				    newpic.css('position','relative');
-				    newpic.addClass('abbrPic');
-				    picSec.append(newpic);
-				}
-		picSec.css('left',0);
-		picSec.css('position','relative');
-		$('aside')[0].style.left = $('body')[0].clientWidth-300;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest(); 
             }
-        }
-        var url = './NewsSrc.json';
-        xmlhttp.open("GET", url, true);
-        xmlhttp.send();
-    }
+            else {// code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    json = eval("(" + xmlhttp.responseText + ")");
 
-    function SlideOn() {
-        if (curNews < json.totalNumber - 1) setCurrent(curNews + 1);
-        else setCurrent(0);
-        setTimeout('SlideOn()', 5000);
-    }
+                    var mainNews = $("<img class = 'mainPic'/>");
+                    mainNews[0].src = json.newsInfo[0].picUrl;
+                    $('div.mainPic').append(mainNews);
+                    $('div.newsTitle')[0].innerHTML = '<a href = ' + json.newsInfo[0].detailUrl + '>' +json.newsInfo[0].title + '</a>';
+                    curNews = 0;
+
+                    var picSec = $('div.abbrPics');
+				    for (i in json.newsInfo) {
+				        var newpic = $("<img/>");
+				        newpic[0].src = json.newsInfo[i].picUrl;
+				        newpic.css('left',5+(i>=7)*(1218));
+				        newpic.css('top',(i>=7)*(-150));
+				        newpic.css('position','relative');
+				        newpic.addClass('abbrPic');
+				        picSec.append(newpic);
+				    }
+		    picSec.css('left',0);
+		    picSec.css('position','relative');
+		    $('aside')[0].style.left = $('body')[0].clientWidth-300;
+                }
+            }
+            var url = './NewsSrc.json';
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function SlideOn() {
+            if (curNews < json.totalNumber - 1) setCurrent(curNews + 1);
+            else setCurrent(0);
+            setTimeout('SlideOn()', 5000);
+        }
     
-    function picSlideBack() {
-        var slider = $('div.abbrPics');
-        if (curSliderPos <= -175) {
-            curSliderPos = curSliderPos + 175;
-            slider.animate({left:  (String(curSliderPos) + 'px')}, 'slow');
-        }
-    };
-    function picSlideNext() { 
-        var slider = $('div.abbrPics');
-        if (curSliderPos >= -175*(json.totalNumber-1)+1218){
-            curSliderPos = curSliderPos - 175;
-            slider.animate({left:  (String(curSliderPos) + 'px')}, 'slow');
-        }
-    };
-    function picMainBack() {
-        if (curNews > 0){
-            setCurrent(curNews - 1);
-        }
-    };
-    function picMainNext() { 
+        function picSlideBack() {
+            var slider = $('div.abbrPics');
+            if (curSliderPos <= -175) {
+                curSliderPos = curSliderPos + 175;
+                slider.animate({left:  (String(curSliderPos) + 'px')}, 'slow');
+            }
+        };
+        function picSlideNext() { 
+            var slider = $('div.abbrPics');
+            if (curSliderPos >= -175*(json.totalNumber-1)+1218){
+                curSliderPos = curSliderPos - 175;
+                slider.animate({left:  (String(curSliderPos) + 'px')}, 'slow');
+            }
+        };
+        function picMainBack() {
+            if (curNews > 0){
+                setCurrent(curNews - 1);
+            }
+        };
+        function picMainNext() { 
         
-        if (curNews < json.totalNumber-1){
-            setCurrent(curNews + 1);
+            if (curNews < json.totalNumber-1){
+                setCurrent(curNews + 1);
+            }
+        };   
+    
+        function PutOnComments(x, y, cnt)
+        {
+            var newCom = $('<div class = "commentBox" style="position:absolute;background-color:#feffc2;opacity:0.8"/>');
+    	    newCom[0].innerHTML = cnt;
+    	    newCom.css('left',x)
+    	    newCom.css('top',y);
+    	    newCom.css('width',200);
+    	    $('div.mainPic').append(newCom);
         }
-    };   
-    
-    function PutOnComments(x, y, cnt)
-    {
-    	var newCom = $('<div style="position:absolute;background-color:#feffc2;opacity:0.5"/>');
-    	newCom[0].innerHTML = cnt;
-    	newCom.css('left',x)
-    	newCom.css('top',y);
-    	newCom.css('width',200);
-    	$('div.mainPic').append(newCom);
-    }
-    
-    function getComments() {
-        var xmlhttp;
 
-        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest(); 
-        }
-        else {// code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            	comments = eval("(" + xmlhttp.responseText + ")");
-            	
-            	
-            	for(i in comments.comments){
-            	     PutOnComments(comments.comments[i].pos_x,comments.comments[i].pos_y,comments.comments[i].content);
-            	}
-            	
+        function switchComments() {
+            if (isCommentsOn) {
+                isCommentsOn = false;
+                $('div.commentBox').remove();
+                $('div.showComment')[0].childNodes[1].innerHTML = '显示评论';
+            }
+            else {
+                isCommentsOn = true;
+                getComments(curNews, (curCommentsPage - 1) * maxNumPerPage, curCommentsPage * maxNumPerPage);
+                $('div.showComment')[0].childNodes[1].innerHTML = '隐藏评论';
             }
         }
-    	var url = './comments.json';
-        xmlhttp.open("GET", url, true);
-        xmlhttp.send();
-    }
-    setTimeout('SlideOn()', 5000);
+        function addComments() { };//"not ready yet";
+
+        function switchPage(dir) {
+            if (isCommentsOn) {
+                curCommentsPage = curCommentsPage + dir;
+                getComments(curNews, (curCommentsPage - 1) * maxNumPerPage, curCommentsPage * maxNumPerPage);
+            }
+        }
+
+        function getComments(newsNo, startNo, endNo) {
+            var xmlhttp;
+
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest(); 
+            }
+            else {// code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            	    comments = eval("(" + xmlhttp.responseText + ")");
+            	
+            	    if (isCommentsOn) {
+            	        for (i in comments.comments) {
+            	            if (i > 4) break;
+            	            PutOnComments(comments.comments[i].pos_x, comments.comments[i].pos_y, comments.comments[i].content);
+            	        }
+            	    }
+                }
+            }
+    	    var url = './comments.json';  
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        setTimeout('SlideOn()', 5000);
     
-</script>
+    </script>
 </head>
 
 <body>
     <aside class ="commentSection">
         <div class ="switchPage" >
-            <h3 onclick = "getComments()" style = "margin:0;cursor:pointer">上一列</h3>
-            <h3 onclick = "getComments()" style = "cursor:pointer">下一列</h3>
+            <h3 onclick ="switchPage(1)" style = "margin:0;cursor:pointer" >上一列</h3>
+            <h3 onclick ="switchPage(-1)" style = "cursor:pointer">下一列</h3>
         </div> 
-        <div class ="showComment" onclick = "getComments()" style = "cursor:pointer">
+        <div class ="showComment" onclick = "switchComments()" style = "cursor:pointer">
             <h1 class ="center" style="margin-top:8px">显示评论</h1>
         </div>
         <hr style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15);width:80%;color:#987cb9;height:1px;"/>
@@ -159,12 +182,12 @@
             
         </div>
         <a title="暂存" style="float:right;"><img src="res/floppy-disc.png" /></a>
-        <a title="发表评论" style="float:right;"><img src="res/comment.png" /></a>
+        <a title="发表评论" style="float:right;" onclick ="addComments()"><img src="res/comment.png" /></a>
         <hr style="clear:both;FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15);width:80%;color:#987cb9;height:1px;"/>
 
         <a title="分享到" style="float:right;"><img src="res/facebook.png" /></a>
         <a title="分享到" style="float:right;"><img src="res/twitter.png" /></a>
-        <a title="分享到" style="background-color:gray;float:right;"><img src="res/share.png" /></a>
+        <a title="分享到" style="float:right;"><img src="res/share.png" /></a>
         <div class ="otherFunc">
             
         </div>
