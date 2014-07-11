@@ -65,14 +65,19 @@ img.abbrPic{
     width:150px;
     height:130px;
     padding:5px 10px;
+    
 }
 img.mainPic{
 	height:435px;
-	width:600px;
+	width:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
 }
 
-.newsTitle{
+div.newsTitle{
     font: bold 35px arial;
+    z-index: 5;
 }
 div.newsTitle a{
     text-decoration:none;
