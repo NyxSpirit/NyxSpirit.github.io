@@ -46,8 +46,8 @@
 				for (i in json.newsInfo) {
 				    var newpic = $("<img/>");
 				    newpic[0].src = json.newsInfo[i].picUrl;
-				    newpic.css('left',5+(i%7)*(i*170));
-				    newpic.css('top',(i%7)*(-150));
+				    newpic.css('left',5+(i>=7)*(i*170));
+				    newpic.css('top',(i>=7)*(-150));
 				    newpic.css('position','relative');
 				    newpic.addClass('abbrPic');
 				    picSec.append(newpic);
