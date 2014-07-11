@@ -1,9 +1,6 @@
 section.picSection{
     margin-left: 30px;
     border:0px solid red;
-    display:block;
-    position:absolute;
-    width:auto;
 }
 aside.commentSection{
     float:right;
@@ -26,7 +23,7 @@ aside.commentSection{
 }
 .mainPic{
     height:435px;
-	
+    width:600px;
 }
 .abbrPics{
     height: 150px;
@@ -85,6 +82,7 @@ div.newsTitle{
     z-index: 105;
     background-color:#76b3ed;
     opacity:0.5;
+    width:inherit;
 }
 div.newsTitle a{
     text-decoration:none;
