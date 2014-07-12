@@ -66,7 +66,7 @@
 				    }
 		    picSec.css('left',0);
 		    picSec.css('position','relative');
-		    $('aside')[0].style.left = $('body')[0].clientWidth-300;
+		    $('aside')[0].style.left = $('body')[0].clientWidth-320;
                 }
             }
             var url = './NewsSrc.json';
@@ -133,6 +133,7 @@
         function switchPage(dir) {
             if (isCommentsOn) {
                 curCommentsPage = curCommentsPage + dir;
+                $('div.commentBox').remove();
                 getComments(curNews, (curCommentsPage - 1) * maxNumPerPage, curCommentsPage * maxNumPerPage);
             }
         }
