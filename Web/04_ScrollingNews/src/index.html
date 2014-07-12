@@ -20,7 +20,9 @@
         var curSliderPos = 0;
         var comments;
         var curCommentsPage = 1;
-
+	
+	setTimeout('SlideOn()', 5000);
+	
         function setCurrent(value) {
     	    var mainNews = $("img.mainPic");
             mainNews.fadeTo('normal', 0.4, function(){
@@ -44,6 +46,7 @@
             else {// code for IE6, IE5
                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
+            
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     json = eval("(" + xmlhttp.responseText + ")");
@@ -68,12 +71,14 @@
 				    }
 		    picSec.css('left',0);
 		    picSec.css('position','relative');
-		    $('aside')[0].style.left = $('body')[0].clientWidth-320;
                 }
             }
             var url = './NewsSrc.json';
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
+            
+            $('aside')[0].style.left = $('body')[0].clientWidth-320;
+            if(window.localStorage.getItem("commentsStorage"));
         }
 
         function SlideOn() {
@@ -154,8 +159,8 @@
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             	    comments = eval("(" + xmlhttp.responseText + ")");
-            	    if (startNo >= comments.comments.length) { console.log("没有下一页评论了。"); switchPage(-1);return;}
-            	    if (endNo <= 0) { console.log("没有上一页评论了。"); switchPage(1);return;}
+            	    if (startNo >= comments.comments.length) { alert("没有下一页评论了。"); switchPage(-1);return;}
+            	    if (endNo <= 0) { alert("没有上一页评论了。"); switchPage(1);return;}
             	    if (isCommentsOn) {
             	        for (i in comments.comments) {
             	            if (i < startNo || i >= endNo) continue;
@@ -168,8 +173,11 @@
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
         }
-        setTimeout('SlideOn()', 5000);
-    
+        function saveComments(){
+            window.localStorage.setItem("commentsStorage",$('textarea.writeComments')[0].value);
+        }
+        
+    	
     </script>
 </head>
 
@@ -187,7 +195,7 @@
             <h3>添加评论</h3>
             <textarea class = "writeComments">   请将评论书写在这里</textarea>
         </div>
-        <a title="暂存" style="float:right;cursor:pointer;padding-right:10px"><img src="res/floppy-disc.png" /></a>
+        <a title="暂存" style="float:right;cursor:pointer;padding-right:10px" onclick = "saveComments()"><img src="res/floppy-disc.png" /></a>
         <a title="发表评论(未完成)" style="float:right;" onclick ="addComments()"><img src="res/comment.png" /></a>
         <hr style="clear:both;FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15);width:80%;color:#987cb9;height:1px;"/>
 
