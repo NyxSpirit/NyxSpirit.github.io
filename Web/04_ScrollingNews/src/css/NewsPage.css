@@ -9,10 +9,9 @@ section.picSection{
 }
 aside.commentSection{
     float:right;
-    margin-top:10px;
+    
     width: 300px;
-    border-left-width:10px;
-    border-top-width:10px;
+    
     border-color:white;
     background-color:white;
     color:black;
@@ -22,11 +21,11 @@ div.switchPage{
     float:right;
 }
 .showComment{
-    margin:0;
+    
     padding:0;
     height: 50px;
     width:200px;
-    padding: 10px;
+    
     background-color:yellow;
     color:black;
 }
@@ -34,7 +33,6 @@ div.addComment{
     height:250px;
     margin:0;
     padding:0;
-    color:aliceblue;
 }
 .center{
     text-align:center;
