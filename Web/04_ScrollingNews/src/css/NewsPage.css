@@ -36,6 +36,9 @@ div.addComment{
     margin:0;
     padding:0;
 }
+div.addComment h3{
+    color:white;
+}
 .center{
     text-align:center;
 }
