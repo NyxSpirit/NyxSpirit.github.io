@@ -121,3 +121,9 @@ aside a{
     margin:2px;
     background-color:gray;
 }
+textarea.writeComments{
+    width:275px;
+    border:none;
+    height:200px;
+    background:gray;
+}
