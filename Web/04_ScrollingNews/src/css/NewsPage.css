@@ -61,6 +61,7 @@ div.slider{
     line-height:150px;
     font-size:x-large;
     font-weight:bolder;
+    -webkit-transition:opacity 0.5s;
 }
 
 .prevNews,.nextNews{
@@ -72,7 +73,7 @@ div.slider{
     line-height:475px;
     font-size:x-large;
     font-weight:bolder;
-     -webkit-transition:opacity 0.5s; 
+     -webkit-transition:opacity 0.5s;
 }
 
 .nextGroup, .nextNews
@@ -80,7 +81,7 @@ div.slider{
     text-align: right;
 }
 
-.prevNews, .nextNews, .prevGroup, .nextGroup :hover{
+.prevNews,.nextNews,.prevGroup,.nextGroup:hover{
     opacity:1;
 }
 
