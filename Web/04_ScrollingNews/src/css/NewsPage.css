@@ -81,7 +81,7 @@ div.slider{
     text-align: right;
 }
 
-.prevNews,.nextNews,.prevGroup,.nextGroup:hover{
+.prevNews:hover,.nextNews:hover,.prevGroup:hover,.nextGroup:hover{
     opacity:1;
 }
 
