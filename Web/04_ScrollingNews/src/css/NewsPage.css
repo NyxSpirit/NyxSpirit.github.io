@@ -9,14 +9,13 @@ section.picSection{
 }
 aside.commentSection{
     float:right;
-    
     width: 300px;
     padding-left:10px;
     padding-top:10px;
     border:0px;
     padding-right:0px;
     border-color:white;
-    background-color:white;
+    background-color:#bebebe;
     color:black;
     position:absolute;
 }
@@ -49,7 +48,7 @@ div.slider{
     height: 150px;
     width: 1218px;
     border:2px dashed #bebebe;
-    background-color:blue;
+    background-color:black;
     padding-top:10px;
     overflow:hidden;
     float: left;
@@ -74,10 +73,16 @@ div.slider{
     line-height:475px;
     font-size:x-large;
     font-weight:bolder;
+     -webkit-transition:opacity 0.5s; 
 }
+
 .nextGroup, .nextNews
 {
     text-align: right;
+}
+
+.prevNews, .nextNews, .prevGroup, .nextGroup :hover{
+    opacity:1;
 }
 
 img.abbrPic{

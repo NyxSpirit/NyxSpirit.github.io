@@ -58,9 +58,10 @@
 				    for (i in json.newsInfo) {
 				        var newpic = $("<img/>");
 				        newpic[0].src = json.newsInfo[i].picUrl;
-				        newpic.css('left',5+(i>=7)*(1218));
+				        newpic.css('left',5+(i>=7)*(1218));             
 				        newpic.css('top',(i>=7)*(-150));
-				        newpic.css('position','relative');
+				        newpic.css('position', 'relative');
+				        newpic.click(setCurrent(i));
 				        newpic.addClass('abbrPic');
 				        picSec.append(newpic);
 				    }
@@ -119,6 +120,7 @@
         function switchComments() {
             if (isCommentsOn) {
                 isCommentsOn = false;
+                curCommentsPage = 0;
                 $('div.commentBox').remove();
                 $('div.showComment')[0].childNodes[1].innerHTML = '显示评论';
             }
@@ -147,13 +149,15 @@
             else {// code for IE6, IE5
                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
+            
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             	    comments = eval("(" + xmlhttp.responseText + ")");
-            	
+            	    if (startNo >= comments.comments.length) { console.log("没有下一页评论了。"); switchPage(-1);return;}
+            	    if (endNo <= 0) { console.log("没有上一页评论了。"); switchPage(1);return;}
             	    if (isCommentsOn) {
             	        for (i in comments.comments) {
-            	            if (i > 4) break;
+            	            if (i < startNo || i >= endNo) continue;
             	            PutOnComments(comments.comments[i].pos_x, comments.comments[i].pos_y, comments.comments[i].content);
             	        }
             	    }
