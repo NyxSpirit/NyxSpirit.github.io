@@ -13,6 +13,8 @@ aside.commentSection{
     width: 300px;
     padding-left:10px;
     padding-top:10px;
+    border:0px;
+    padding-right:0px;
     border-color:white;
     background-color:white;
     color:black;
@@ -23,7 +25,7 @@ div.switchPage{
 }
 .showComment{
     
-    padding:0;
+    padding:10px;
     height: 50px;
     width:200px;
     
