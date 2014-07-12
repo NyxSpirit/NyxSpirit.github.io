@@ -13,7 +13,8 @@ aside.commentSection{
     width: 300px;
     border-left-width:10px;
     border-top-width:10px;
-    background-color:#feffc2;
+    border-color:white;
+    background-color:white;
     color:black;
     position:absolute;
 }
@@ -56,7 +57,7 @@ div.slider{
     float: left;
     width:30px;
     height:150px;
-    background-color: #bebebe;
+    background-color: #f6ef9e;
     opacity: 0.3;
     line-height:150px;
     font-size:x-large;
@@ -67,7 +68,7 @@ div.slider{
     float: left;
     width:45px;
     height:475px;
-    background-color: #bebebe;
+    background-color: #f6ef9e;
     opacity: 0.3;
     line-height:475px;
     font-size:x-large;
