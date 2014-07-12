@@ -71,14 +71,17 @@
 				    }
 		    picSec.css('left',0);
 		    picSec.css('position','relative');
+		    
+		    $('aside')[0].style.left = $('body')[0].clientWidth-320;
+        	    if(window.localStorage.getItem("commentsStorage")) 
+        	    	$('textarea.writeComment'[0].innerHTML = window.localStorage.getItem("commentsStorage");
                 }
             }
             var url = './NewsSrc.json';
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
             
-            $('aside')[0].style.left = $('body')[0].clientWidth-320;
-            if(window.localStorage.getItem("commentsStorage"));
+
         }
 
         function SlideOn() {
