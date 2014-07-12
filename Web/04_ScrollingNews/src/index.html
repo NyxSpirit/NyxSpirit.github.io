@@ -90,6 +90,7 @@
             if (curNews < json.totalNumber - 1) setCurrent(curNews + 1);
             else setCurrent(0);
             isSlideOn = 1;
+            $('div.settingSection')[0].innerHTML = "停止轮播";
             timeoutID = setTimeout('SlideOn()', 5000);
         }
         
@@ -104,7 +105,6 @@
      	    	stopSlide();
      	    }
      	    else{
-     	    	$('div.settingSection')[0].innerHTML = "停止轮播";
      	    	SlideOn();
      	    }
      	}
@@ -143,7 +143,6 @@
     	    newCom.css('top',y);
     	    //newCom.css('width',200);
     	    $('div.mainPic').append(newCom);
-    	    StopSlide();
         }
 
         function switchComments() {
@@ -152,13 +151,16 @@
                 curCommentsPage = 1;
                 $('div.commentBox').remove();
                 $('div.showComment')[0].childNodes[1].innerHTML = '显示评论';
+                SlideOn();
             }
             else {
                 isCommentsOn = true;
                 getComments(curNews, (curCommentsPage - 1) * maxNumPerPage, curCommentsPage * maxNumPerPage);
                 $('div.showComment')[0].childNodes[1].innerHTML = '隐藏评论';
+                stopSlide();
             }
         }
+        
         function addComments() { };//"not ready yet";
 
         function switchPage(dir) {
