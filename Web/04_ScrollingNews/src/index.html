@@ -62,7 +62,7 @@
 				        newpic.css('top',(i>=7)*(-150));
 				        newpic.css('position', 'relative');
 				        newpic.css('cursor','pointer');
-				        
+				        newpic[0].setAttribute('onclick','setCurrent('+String(i)+')');
 				        newpic.addClass('abbrPic');
 				        picSec.append(newpic);
 				    }
