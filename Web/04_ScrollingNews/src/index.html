@@ -21,6 +21,7 @@
         var comments;
         var curCommentsPage = 1;
 	var timeoutID;
+	var isSlideOn = 1;
 	
 	timeoutID = setTimeout('SlideOn()', 5000);
 	
@@ -88,9 +89,26 @@
         function SlideOn() {
             if (curNews < json.totalNumber - 1) setCurrent(curNews + 1);
             else setCurrent(0);
+            isSlideOn = 1;
             timeoutID = setTimeout('SlideOn()', 5000);
         }
-    
+        
+     	function stopSlide(){
+            isSlideOn = 0;
+            $('div.settingSection')[0].innerHTML = "开始轮播";
+     	    clearTimeout(timeoutID);
+     	}
+     	
+     	function switchSlide(){
+     	    if(isSlideOn){
+     	    	stopSlide();
+     	    }
+     	    else{
+     	    	$('div.settingSection')[0].innerHTML = "停止轮播";
+     	    	SlideOn();
+     	    }
+     	}
+     	
         function picSlideBack() {
             var slider = $('div.abbrPics');
             if (curSliderPos <= -175) {
@@ -123,8 +141,9 @@
     	    newCom[0].innerHTML = cnt;
     	    newCom.css('left',x)
     	    newCom.css('top',y);
-    	    newCom.css('width',200);
+    	    //newCom.css('width',200);
     	    $('div.mainPic').append(newCom);
+    	    StopSlide();
         }
 
         function switchComments() {
@@ -186,7 +205,7 @@
 </head>
 
 <body>
-    <div class = "settingSection">停止轮播</div>
+    <div class = "settingSection" onclick = "switchSlide()" >停止轮播</div>
     <aside class ="commentSection">
         <div class ="switchPage" >
             <h3 onclick ="switchPage(-1)" style = "margin:5px;cursor:pointer" >上一列</h3>
