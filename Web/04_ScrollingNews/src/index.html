@@ -20,8 +20,9 @@
         var curSliderPos = 0;
         var comments;
         var curCommentsPage = 1;
+	var timeoutID;
 	
-	setTimeout('SlideOn()', 5000);
+	timeoutID = setTimeout('SlideOn()', 5000);
 	
         function setCurrent(value) {
     	    var mainNews = $("img.mainPic");
@@ -87,7 +88,7 @@
         function SlideOn() {
             if (curNews < json.totalNumber - 1) setCurrent(curNews + 1);
             else setCurrent(0);
-            setTimeout('SlideOn()', 5000);
+            timeoutID = setTimeout('SlideOn()', 5000);
         }
     
         function picSlideBack() {
@@ -185,6 +186,7 @@
 </head>
 
 <body>
+    <div class = "settingSection">停止轮播</div>
     <aside class ="commentSection">
         <div class ="switchPage" >
             <h3 onclick ="switchPage(-1)" style = "margin:5px;cursor:pointer" >上一列</h3>
