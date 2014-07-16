@@ -65,18 +65,18 @@ function loadMap(level) {
             var mapInfo = eval('(' + xmlhttp.responseText + ')');
             console.log(mapInfo);
 
-            //startPoint = { x: 200, y: 50 };
-            //setPosition(hero, startPoint.x, canv.height - startPoint.y);
+            startPoint.x = mapInfo.startPoint.x;
+            startPoint.y = mapInfo.startPoint.y;
 
-            //energys = [{ x: 370, y: 160, validity: 'uncollected' },
-            //            { x: 510, y: 160, validity: 'uncollected' }
-            //            ];
-            //setEnergys();
-            //endLine = { x: 650, y: 50 };
-            //map.font = "20px gray ";
-            //map.strokeText("-->Next", 650, 190);
+            setPosition(hero, startPoint.x, canv.height - startPoint.y);
 
-            //map.restore();
+            energys = mapInfo.energys;
+            setEnergys();
+            endLine = mapInfo.endLine;
+            map.save();
+            map.font = "20px gray ";
+            map.strokeText("-->Next", mapInfo.endLine.x, canv.height - mapInfo.endLine.y - 10);
+            map.restore();
         }
     }
     xmlhttp.open('GET', url, true);
