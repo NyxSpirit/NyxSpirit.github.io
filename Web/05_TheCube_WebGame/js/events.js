@@ -74,8 +74,18 @@ function loadMap(level) {
             setEnergys();
             endLine = mapInfo.endLine;
             map.save();
-            
+            map.lineWidth = 2;
+            map.beginPath();
+            for(i in mapInfo.lines)
+            {
+                map.moveTo(mapInfo.lines[i][0].x, mapInfo.lines[i][0].y);   
+                for(var j = 1; j < mapInfo.lines[i].length; j ++)
+                    map.lineTo(mapInfo.lines[i][j].x, mapInfo.lines[i][j].y)
+            }
+            map.closePath();
+            map.stroke();
             map.restore();
+            
             map.save();
             map.font = "20px gray ";
             map.strokeText("-->Next", mapInfo.endLine.x, canv.height - mapInfo.endLine.y - 10);
