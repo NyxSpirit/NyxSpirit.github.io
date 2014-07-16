@@ -7,5 +7,7 @@
 				{ "x": "510", "y": "160", "validity": "uncollected" }
 				],
 
-	"endLine" : { "x": "650", "y": "50" }
+	"endLine" : { "x": "650", "y": "50" },
+	
+	"mapDrawing" : "function(){alert('100')}"
 }
