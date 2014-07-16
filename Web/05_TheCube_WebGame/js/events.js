@@ -49,17 +49,47 @@ function loadMap(level) {
 
     clearMap();
     // map Level 0;
-    {
-        startPoint = { x: 200, y: 50 };
-        setPosition(hero, startPoint.x, canv.height - startPoint.y);
+    url = '../maps/Level' + String(level) + '.json';
 
-        energys = [{ x: 370, y: 160, validity: 'uncollected' },
-                    { x: 510, y: 160, validity: 'uncollected' }
-                    ];
-        setEnergys();
+    var xmlhttp;
 
-        endLine = { x: 650, y: 50 };
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
 
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var mapInfo = eval('(' + xmlhttp.responseText + ')');
+            console.log(mapInfo);
+
+            //startPoint = { x: 200, y: 50 };
+            //setPosition(hero, startPoint.x, canv.height - startPoint.y);
+
+            //energys = [{ x: 370, y: 160, validity: 'uncollected' },
+            //            { x: 510, y: 160, validity: 'uncollected' }
+            //            ];
+            //setEnergys();
+            //endLine = { x: 650, y: 50 };
+            //map.font = "20px gray ";
+            //map.strokeText("-->Next", 650, 190);
+
+            //map.restore();
+        }
+    }
+    xmlhttp.open('GET', url, true);
+    xmlhttp.send();
+}
+
+function dead() {
+    alert("You are dead!");
+    restart();
+}
+
+//Abandoned Codes
+/*
         map.save();
         map.lineWidth = 2;
         map.beginPath();
@@ -83,32 +113,5 @@ function loadMap(level) {
         map.lineTo(530, 200);
         map.closePath();
         map.stroke();
-       
-        map.font = "20px gray ";
-        map.strokeText("-->Next", 650, 190);
-
-        map.restore();
-    }
-    url = 'maps/level' + String(currentLevel) + '.json';
-    var mapData = eval("({'level':'1','startPoint':{'x':'200','y':'50'}})");
-    //var xmlhttp;
-    //if (window.XMLHttpRequest) {
-    //    xmlhttp = new XMLHttpRequest();
-    //}
-    //else {
-    //    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    //}
-    //xmlhttp.onreadystatechange = function(){
-    //    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-    //        var mapDrawing = xmlhttp.responseText;
-    //        alert(mapDrawing);
-    //    }
-    //}   
-    //var url = 'localhost:8888/start?level=' + String(level);
-    //xmlhttp.open('GET', url, true);
-    //xmlhttp.send();
-}
-function dead() {
-    alert("You are dead!");
-    restart();
-}
+    var url = 'localhost:8888/start?level=' + String(level);
+*/
