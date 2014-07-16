@@ -1,13 +1,19 @@
 ﻿{
 	"startPoint" : { 
-						"x": "200", 
-						"y": "50" 
+						"x": "120", 
+						"y": "200" 
 					},
-	"energys" : [{ "x": "370", "y": "160", "validity": "uncollected" },
-				{ "x": "510", "y": "160", "validity": "uncollected" }
+	"energys" : [{ "x": "280", "y": "200", "validity": "uncollected" },
+				{ "x": "480", "y": "20", "validity": "uncollected" }
 				],
 
 	"endLine" : { "x": "650", "y": "50" },
 	
-	"mapDrawing" : "function(){alert('100')}"
+	"lines" : [
+
+[{"x" : "100","y" : "200"},{"x" : "700","y" : "200"}],
+[{"x" : "300","y" : "200"},{"x" : "300","y" : "50"}],
+[{"x" : "500","y" : "200"},{"x" : "500","y" : "50"},
+
+		]
 }
