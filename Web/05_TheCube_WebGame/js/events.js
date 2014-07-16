@@ -49,7 +49,7 @@ function loadMap(level) {
 
     clearMap();
     // map Level 0;
-    url = 'maps/map_lv' + String(level) + '.json';
+    url = 'maps/lv' + String(level) + 'Map.json';
 
     var xmlhttp;
 
