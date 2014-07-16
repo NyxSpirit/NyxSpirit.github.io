@@ -1,0 +1,11 @@
+﻿{
+	"startPoint" : { 
+						"x": "200", 
+						"y": "50" 
+					},
+	"energys" : [{ "x": "370", "y": "160", "validity": "uncollected" },
+				{ "x": "510", "y": "160", "validity": "uncollected" }
+				],
+
+	"endLine" : { "x": "650", "y": "50" }
+}
