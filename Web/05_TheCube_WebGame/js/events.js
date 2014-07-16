@@ -74,6 +74,9 @@ function loadMap(level) {
             setEnergys();
             endLine = mapInfo.endLine;
             map.save();
+            
+            map.restore();
+            map.save();
             map.font = "20px gray ";
             map.strokeText("-->Next", mapInfo.endLine.x, canv.height - mapInfo.endLine.y - 10);
             map.restore();
