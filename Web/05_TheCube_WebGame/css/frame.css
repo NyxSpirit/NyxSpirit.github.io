@@ -151,6 +151,12 @@ img.heroPic
     height: inherit;
 }
 
+div.companionSqr
+{
+    position: absolute;
+    border:1px dotted #a8a8a8;
+}
+
 /*ÆäËû*/
 .clearfix:after
 {
@@ -162,4 +168,12 @@ img.heroPic
 .clearfix
 {
     zoom: 1;
+}
+.hintIncident{
+	font-size:64px;
+	font-weight:bolder;
+	position:absolute;
+	color:red;
+	left:400px;
+	top:100px;
 }

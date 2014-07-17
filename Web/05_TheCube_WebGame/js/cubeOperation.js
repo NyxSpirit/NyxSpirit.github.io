@@ -3,7 +3,6 @@
 */
 
 // 变量声明
-var lengthUnit = 20;
 var dirHash = { 'right': 0, 'up': 1, 'left': 2, 'down': 3, 'undefined': -1};
 var cubeRegionNo = [0, 7, 6, 1, 8, 5, 2, 3, 4];
 var activeRegionArray = [];
@@ -19,6 +18,7 @@ function useCube(map) {                                                     // �
             alert('请先在右边选择魔方朝向');
             return;
         }
+		cubeSound();
         origin = getPosition(hero);
         offset = posCorrection(cubeDirection);
         origin.x += offset.x;
@@ -123,10 +123,14 @@ function htmlRefresh(type) {
     
     if (type == 'direction' || type == 'both') {
         var directionIconsOrder = { 'right': 1, 'up': 3, 'left': 2, 'down': 0 };
-        for(var i = 0; i < 4; i++)
+        for(var i = 0; i < 4; i++){
             $('img.directionIcon')[i].style.border = "2px dotted gray";
-        if (cubeDirection != 'undefined')
+            $('img.directionIcon')[i].style.opacity = 0;
+        }
+        if (cubeDirection != 'undefined'){
             $('img.directionIcon')[directionIconsOrder[cubeDirection]].style.border = "2px solid blue";
+            $('img.directionIcon')[directionIconsOrder[cubeDirection]].style.opacity = 1;
+        }
     } 
     if(type == 'storageRegion' || type == 'both') {
         var storageDivs = $('div.storageRegion');
