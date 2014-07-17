@@ -12,6 +12,7 @@
         <script type="text/javascript" src="js/events.js"></script>
         <script type ="text/javascript" src ="js/physicalEngine.js"></script>
         <script type ="text/javascript" src ="js/energySystem.js"></script>
+        <script type ="text/javascript" src ="js/drawMaps.js"></script>
         <link type ="text/css" rel="stylesheet" href="./css/zzsc.css" />    
         <link type ="text/css" rel="stylesheet" href="./css/frame.css" />
 
@@ -108,7 +109,8 @@
             <canvas class ="map"  height="250" width="800">
 
             </canvas>
-
+        </section>
+        <footer>
 <!--   下面是脚本文件-->
             <script type ="text/javascript" id="en">
 
@@ -118,7 +120,7 @@
                 var cubeSpace = $('canvas.storage')[0].getContext('2d');
                 var hero = $('div.hero')[0];                                            //主人公
                 var companionSqr = $('div.companionSqr')[0];                          //辅助显示魔方操作空间对象的伴随方块
-                
+
                 var canv = $('canvas.map')[0];
                 var map = canv.getContext('2d');
                 var energyBar = $('div#energyBar');
@@ -129,10 +131,11 @@
                 var map_scale_x = canv.clientWidth / canv.width;
                 var map_scale_y = canv.clientHeight / canv.height;
                 var heroMargin = parseInt(10 / map_scale_x);
-                
+
                 //游戏参数
                 var currentLevel = 0;
-                
+                var maxLevel = 2;
+
                 var people = {};
                 var startPoint;                          //主角的出生点 物理坐标 由地图给出
                 var endLine;                             //终点线，物理坐标x,y都超过这个点，则停止运动，进入下一关。
@@ -148,24 +151,24 @@
 
                 //地图元素的定义
                 var energys = [];                                                          //对象名： energy， 能量晶体。
-               
+
                 //网页元素定制
                 {
                     companionSqr.style.height = String(3 * lengthUnit) + 'px';
                     companionSqr.style.width = String(3 * lengthUnit) + 'px';
-                } 
+                }
                 /*下面是接口函数部分*/
 
-                function companionSqrFollowing() {                                       
+                function companionSqrFollowing() {
                     if (cubeDirection == 'undefined') return 0;
                     if (!showingCompanionSqr) return 0;
                     var origin = getPosition(hero);
                     var offset = {
-                        'left':{x:-3,y:1},
-                        'up':{x:-1,y:-1},
-                        'right':{x:1,y:1},
-                        'down':{x:-1,y:3}
-                        };
+                        'left': { x: -3, y: 1 },
+                        'up': { x: -1, y: -1 },
+                        'right': { x: 1, y: 1 },
+                        'down': { x: -1, y: 3 }
+                    };
                     origin.x += offset[cubeDirection].x * lengthUnit;
                     origin.y += offset[cubeDirection].y * lengthUnit;
                     setPosition(companionSqr, origin.x, origin.y);
@@ -199,7 +202,7 @@
                 }
 
                 function canvasToClient(point) {
-                    return { x: map_X0 + point.x * map_scale_x, y: map_Y0 + point.y * map_scale_y};
+                    return { x: map_X0 + point.x * map_scale_x, y: map_Y0 + point.y * map_scale_y };
                 }
 
                 function setPosition(object, leftBottom_x, leftBottom_y) {
@@ -214,6 +217,6 @@
                     });
                 }
             </script>
-        </section>
+        </footer>
     </body>
 </html>
