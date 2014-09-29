@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="CSS/Main.css" />
+    <script src="JavaScript/Logic.js"></script>
+    <title>Game of Life</title>
+</head>
+
+<body onload="init()">
+    <div id ="Main-Wrap">
+        <header id ="Title-Section">
+            <h1>How Cells Make Sex.</h1>
+        </header>
+
+        <section id="Display-Section">
+            <canvas height="400" width="400" id="map">
+
+            </canvas>
+        </section>
+        <section id="Control-Section">
+        	<p>尺寸设置</p>
+            <label>行</label><input class="Input-Size" type="number" id="Input-Row" value="30"/><br />
+            <label>列</label><input class="Input-Size" type="number" id="Input-Col" value="30"/><br />
+            <button onClick="initCanvas()">确定</button>
+            <hr />
+            <p>细胞设置</p>
+            <button onClick="randomCells()">随机生成</button>
+            <hr />
+			<p>速度设置</p>
+            <label>慢</label><input type="range" id="Input-Speed" name="Speed" max="50" min="1" value="1"/><label>快</label>
+            <button onClick="startSex()">开始进化</button>
+            <hr />
+			<p>当前信息</p>
+            <label id="Cell-Number">细胞个数：</label><br/>
+            <label></label><br/>
+            <label id="Genaration-Number">繁衍代数：</label><br/>
+        </section>
+
+        <footer id="Footer-Section">
+
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="CSS/Main.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.15.0.css"> 
+    <script src="JavaScript/Logic.js"></script>
+    <title>Game of Life Unit Test</title>
+</head>
+<body onload="init()">
+    <div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+	<script src="http://code.jquery.com/qunit/qunit-1.15.0.js"></script>
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script>
+
+        QUnit.module("绘制函数测试");
+
+        QUnit.test( "initCanvas(),重绘画布，函数测试", function( assert ) {
+	        initCanvas();
+	        assert.equal( rows, "30", "从输入获取行数为30" );
+	        assert.equal( cols, "30", "从输入获取列数为30" );
+	        assert.equal( cellWidth, "12.3", "细胞宽度为12.3（细胞间隙宽度为1）");
+	        assert.equal( cellHeight, "12.3", "细胞高度为12.3");
+			
+	        assert.equal( cellNumber, 0, "细胞个数清零");
+	        assert.equal( generationNumber, 0, "细胞代数清零");
+			
+	        assert.equal( history.length, 1, "历史清空"); 
+        });
+		
+        QUnit.module("逻辑函数测试");
+        QUnit.test("setCell()设置细胞状态，函数测试", function (assert) {
+            setCell(0, 0);
+            assert.equal(map[0][0], 1, "在（0,0)处点击生成活细胞");
+            assert.equal(cellNumber, 1, "细胞个数加1");
+            setCell(399, 399);
+            assert.equal(map[29][29], 1, "在（399,399)处点击生成活细胞");
+            map[29][29] = 0;
+            setCell(396, 396);
+            assert.equal(map[29][29], 1, "在（396,396)处点击生成活细胞");
+            setCell(41, 68);
+            assert.equal(map[5][3], 1, "在（5,3)处点击生成活细胞");
+            setCell(41, 68);
+            assert.equal(map[5][3], 0, "在（5,3)处再次点击变成死细胞");
+            
+            assert.equal(setCell(-12, 683), -1, "画布外点击无操作返回");
+        });
+
+        QUnit.test("startSex()繁衍下一代，函数测试, 判断死活部分", function (assert) {
+            var testInitCellsArray_row;
+            var testInitCellsArray_col;
+
+            //测试1
+            init();
+            assert.equal(cellNumber, 0, "初始化完成(清空活细胞）");
+            testInitCellsArray_row = [0, 0, 0, 1];
+            testInitCellsArray_col = [0, 1, 2, 0];
+            for (var i = 0; i < testInitCellsArray_row.length; i++)
+                map[testInitCellsArray_row[i]][testInitCellsArray_col[i]] = 1;
+            assert.ok(true, "设置测试用起始细胞完成，（1，1）周围有且仅有四个活细胞，本身是死细胞；");
+            startSex();
+            assert.equal(map[1][1], 0, "下一代(1,1)处是死细胞。");
+            //测试2
+            init();
+            assert.equal(cellNumber, 0, "初始化完成(清空活细胞）");
+            testInitCellsArray_row = [0, 0, 1];
+            testInitCellsArray_col = [0, 2, 0];
+            for (var i = 0; i < testInitCellsArray_row.length; i++)
+                map[testInitCellsArray_row[i]][testInitCellsArray_col[i]] = 1;
+            assert.ok(true, "设置测试用起始细胞完成，（1，1）周围有且仅有三个活细胞，本身是死细胞；");
+            startSex();
+            assert.equal(map[1][1], 1, "下一代(1,1)处是活细胞。");
+            //测试3
+            init();
+            assert.equal(cellNumber, 0, "初始化完成(清空活细胞）");
+            testInitCellsArray_row = [0, 2];
+            testInitCellsArray_col = [2, 0];
+            for (var i = 0; i < testInitCellsArray_row.length; i++)
+                map[testInitCellsArray_row[i]][testInitCellsArray_col[i]] = 1;
+            assert.ok(true, "设置测试用起始细胞完成，（1，1）周围有且仅有两个活细胞，本身是死细胞；");
+            startSex();
+            assert.equal(map[1][1], 0, "下一代(1,1)处保持原状，是死细胞。");
+            //测试4
+            init();
+            assert.equal(cellNumber, 0, "初始化完成(清空活细胞）");
+            testInitCellsArray_row = [2, 1, 1];
+            testInitCellsArray_col = [1, 2, 1];
+            for (var i = 0; i < testInitCellsArray_row.length; i++)
+                map[testInitCellsArray_row[i]][testInitCellsArray_col[i]] = 1;
+            assert.ok(true, "设置测试用起始细胞完成，（1，1）周围有且仅有两个活细胞，本身是活细胞；");
+            startSex();
+            assert.equal(map[1][1], 1, "下一代(1,1)处保持原状，是活细胞。");
+            //测试地图左右相连及上下相连
+            init();
+            assert.equal(cellNumber, 0, "初始化完成(清空活细胞）");
+            testInitCellsArray_row = [29, 29, 0];
+            testInitCellsArray_col = [29, 0, 29];
+            for (var i = 0; i < testInitCellsArray_row.length; i++)
+                map[testInitCellsArray_row[i]][testInitCellsArray_col[i]] = 1;
+            assert.ok(true, "设置测试用起始细胞完成，（0，0）周围有且仅有三个活细胞（{0，29}，{29，0}，{29，29}），本身是死细胞；");
+            startSex();
+            assert.equal(map[0][0], 1, "由于边界相连，下一代(0,0)处是活细胞。");
+        });
+
+        QUnit.test("startSex()繁衍下一代，函数测试, 逻辑部分", function (assert) {
+            init();
+            for (var i = 1; i < 103; i++) {
+                startSex();
+            }
+            assert.ok(true, "模拟103代进化进行测试");
+            assert.equal(generationNumber, 102, "繁衍代数增加102代");
+            assert.equal(endPoint, 2, "历史的最后一代保存位置是2");
+        });
+
+        QUnit.test("backSex()回放上一代，函数测试", function (assert) {
+            init();
+            assert.equal(backSex(), -1, "返回初代时错误返回");
+            
+            for(var i = 1; i < 103; i++)
+                startSex();
+            assert.ok(true, "模拟了103代进化");
+            for (var i = 1; i < 100; i++)
+                if (backSex() == -1)
+                    assert.equal(0, 1, "在第" + i + "次回退的过程中出现错误");
+            assert.ok("完成了100次回退");
+            assert.equal(backSex(), -1, "第101次回退时到达历史记录的极限");
+            assert.equal(generationNumber, 3, "繁殖代数是3");
+            
+            startSex();
+            backSex();
+            assert.ok(true, "在最早历史记录的情况下，计算下一代，再倒退回去");
+            assert.equal(backSex(), -1, "再倒退，异常返回");
+        });
+	</script>
+	<div id ="Main-Wrap">
+        <header id ="Title-Section">
+            <h1>How Cells Make Sex.</h1>
+        </header>
+
+        <section id="Display-Section">
+            <canvas height="400" width="400" id="map">
+
+            </canvas>
+        </section>
+        <section id="Control-Section">
+        	<p>尺寸设置</p>
+            <label>行</label><input class="Input-Size" type="number" id="Input-Row" value="30"/><br />
+            <label>列</label><input class="Input-Size" type="number" id="Input-Col" value="30"/><br />
+            <button onclick="drawCanvas()">确定</button>
+            <hr />
+            <p>细胞设置</p>
+            <button onclick="randomMap()">随机生成</button>
+            <hr />
+			<p>速度设置</p>
+            <label>慢</label><input type="range" id="Input-Speed" name="Speed" max="50" min="1" value="1"/><label>快</label>
+            <button onclick="startSex()">开始进化</button>
+            <hr />
+			<p>当前信息</p>
+            <label id="Cell-Number">细胞个数：</label><br/>
+            <label></label><br/>
+            <label id="Genaration-Number">繁衍代数：</label><br/>
+        </section>
+
+        <footer id="Footer-Section">
+
+        </footer>
+    </div>
+</body>
+</html>

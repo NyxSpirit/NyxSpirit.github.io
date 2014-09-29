@@ -1,0 +1,85 @@
+﻿body {
+    background-color: #999999;
+}
+    body #Main-Wrap
+    {
+        margin: 0 auto;
+        height:600px;
+        width:800px;
+    }
+#Title-Section
+{
+    text-align:center;
+    margin: 0 auto;
+
+}
+header
+{   
+    top:0;
+    left:0;
+    height:100px;
+    width:800px;
+}
+#Display-Section
+{
+    top:100px;
+    left:0px;
+    width:600px;
+    height:500px;
+    margin:0px;
+    float:left;
+}
+#Control-Section
+{
+    top:100px;
+    left:600px;
+    width:200px;
+    height:500px;
+    margin:0px;
+    float:right;
+}
+#Footer-Section
+{
+}
+
+#map
+{
+    height:400px;
+    width:400px;
+    position:relative;
+    margin-left:-200px;
+    left:50%;
+}
+label
+{
+    margin:10px;
+}
+.Input-Size
+{
+    margin-left:30px;
+    width:120px;
+}
+#Input-Speed
+{
+    width:120px;
+}
+button
+{
+    margin-top:10px;
+    position:relative;
+    left:100%;
+    width:80px;
+    margin-left:-80px;
+}
+p
+{
+	font-size:9px;
+	font-weight:bold;
+	font:"黑体";
+	margin-bottom:20px;
+}
+h1
+{
+    font-family:Impact;
+    font-size:50px;
+}
