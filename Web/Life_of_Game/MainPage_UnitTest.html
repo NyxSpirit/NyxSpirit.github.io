@@ -34,9 +34,6 @@
             setCell(0, 0);
             assert.equal(map[0][0], 1, "在（0,0)处点击生成活细胞");
             assert.equal(cellNumber, 1, "细胞个数加1");
-            setCell(399, 399);
-            assert.equal(map[29][29], 1, "在（399,399)处点击生成活细胞");
-            map[29][29] = 0;
             setCell(396, 396);
             assert.equal(map[29][29], 1, "在（396,396)处点击生成活细胞");
             setCell(41, 68);
