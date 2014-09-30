@@ -14,6 +14,7 @@ var canvas;
 var ctx;
 
 //变量
+var speed;
 var rows,cols;
 var cellWidth,cellHeight;
 
@@ -25,6 +26,7 @@ var endPoint;
 var cellNumber;
 var generationNumber;
 
+var timer=null;
 
 //清空历史记录
 function initHistory(){
@@ -50,6 +52,12 @@ function newState(){
 	endPoint=0;
 }
 
+//判断是否是整数
+function isNumber(num){
+	var re=/^[0-9]*[1-9][0-9]*$/;
+	return re.test(num);
+}
+
 //初始化画布
 function initCanvas() {
 
@@ -57,6 +65,12 @@ function initCanvas() {
 	rows = document.getElementById("Input-Row").value;
 	cols = document.getElementById("Input-Col").value;
 
+	//判断输入是否合法
+	if (!isNumber(rows)||!isNumber(cols)||rows<1||rows>100||cols<1||cols>100){
+		alert("请输入1到100间的整数！");
+		return;
+	}
+	
 	//绘制画布
 	canvas = document.getElementById("map");
 	ctx = canvas.getContext('2d');
@@ -86,6 +100,7 @@ function initCanvas() {
 	document.getElementById("Cell-Number").innerHTML="细胞个数："+cellNumber;
 	
 	newState();
+
 }
 
 //绘制线段
@@ -121,7 +136,7 @@ function init() {
 	
 	canvas.addEventListener("mousewheel",function (e){
 		var dis=e.wheelDelta;
-		var speed=Number(document.getElementById("Input-Speed").value);
+		speed=Number(document.getElementById("Input-Speed").value);
 		if (dis>0){
 			for (var i=0;i<speed;i++){
 				if (backSex()==-1)
@@ -130,12 +145,11 @@ function init() {
 		}
 		else{
 			for (var i=0;i<speed;i++){
-				startSex();
+				proceedSex();
 			}
 		}
-
 		e.returnValue = false;
-	},true);
+	},false);
 }
 
 //获取鼠标相对于画布的位置
@@ -197,8 +211,20 @@ function setCell(x,y){
 	newState();
 }
 
-//繁衍一代
+//开始进化
 function startSex(){
+	proceedSex();
+	speed=Number(document.getElementById("Input-Speed").value);
+	timer=setTimeout("startSex()",1000/speed);
+}
+
+//停止进化
+function stopSex(){
+	clearTimeout(timer);
+}
+
+//繁衍一代
+function proceedSex(){
 
 	generationNumber++;
 	document.getElementById("Genaration-Number").innerHTML="繁衍代数："+generationNumber;
@@ -240,8 +266,6 @@ function startSex(){
 	}
 	
 	drawCells();
-	
-	return 0;
 }
 
 //回溯到上一代

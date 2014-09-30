@@ -144,14 +144,15 @@
         	<p>尺寸设置</p>
             <label>行</label><input class="Input-Size" type="number" id="Input-Row" value="30"/><br />
             <label>列</label><input class="Input-Size" type="number" id="Input-Col" value="30"/><br />
-            <button onclick="drawCanvas()">确定</button>
+            <button onclick="initCanvas()">确定</button>
             <hr />
             <p>细胞设置</p>
-            <button onclick="randomMap()">随机生成</button>
+            <button onclick="randomCells()">随机生成</button>
             <hr />
 			<p>速度设置</p>
             <label>慢</label><input type="range" id="Input-Speed" name="Speed" max="50" min="1" value="1"/><label>快</label>
-            <button onclick="startSex()">开始进化</button>
+            <button onClick="startSex()">开始进化</button><br/>
+			<button onClick="stopSex()">停止进化</button>
             <hr />
 			<p>当前信息</p>
             <label id="Cell-Number">细胞个数：</label><br/>
